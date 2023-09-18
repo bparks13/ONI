@@ -430,8 +430,10 @@ ameliorate the effects of uneven reading times caused by computer operating
 systems or other software limitations.</p>
 <section id="data-frames">
 <span id="frame"></span><h3>Data Frames<a class="headerlink" href="#data-frames" title="Permalink to this heading">#</a></h3>
-<p>Data from the read channel is packed in frames. Each frame contains data from a
-single device <a class="reference internal" href="devices.html#dev-sample"><span class="std std-ref">sample</span></a>. The frame format is:</p>
+<p>Data from the read channel is packed in frames. Each frame is a timestamped
+<a class="reference external" href="https://en.wikipedia.org/wiki/Type%E2%80%93length%E2%80%93value">type-length-value-encoded</a>
+structure that contains data from a single device <a class="reference internal" href="devices.html#dev-sample"><span class="std std-ref">sample</span></a>.
+The frame format is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint64</span>  <span class="n">Common_Timestamp</span>
 <span class="n">uint32</span>  <span class="n">Device_Address</span>
 <span class="n">uint32</span>  <span class="n">Sample_Size</span>

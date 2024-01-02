@@ -421,12 +421,9 @@ document.write(`
 testing the API and software. It has the following limitations:</p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="../onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_RUNNING" title="ONI_OPT_RUNNING"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_RUNNING</span></code></a> does nothing.</p></li>
-<li><p>It only supports a device table with containing devices with a fixed read/write size</p></li>
 <li><p>The driver is single threaded and synchronous with API function calls and
 therefore quite limited. This means that the asynchronous nature of real
 hardware is not emulated or tested by this driver.</p></li>
-<li><p><a class="reference internal" href="../onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_BLOCKREADSIZE" title="ONI_OPT_BLOCKREADSIZE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_BLOCKREADSIZE</span></code></a> must be set to an integer multiple of the frame
-size, which is 28 bytes.</p></li>
 </ol>
 <p>Its only dependency is the C standard library.</p>
 <section id="building-the-library">
@@ -549,7 +546,7 @@ projects.</p>
         <div class="footer-item">
   <p class="copyright">
     
-      © Copyright 2010-2023, Open Ephys &amp; Contributors.
+      © Copyright 2010-2024, Open Ephys &amp; Contributors.
       <br/>
     
   </p>

@@ -318,7 +318,6 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="spec_goals.html">Specification Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary of Terms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hierarchy.html">Hardware Hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comm_channels.html">Channel Types</a></li>
@@ -419,7 +418,7 @@ requires an undersanding of the the <a class="reference internal" href="../api/i
 <li><p><strong>Direction</strong> : Read</p></li>
 </ul>
 <p>The <em>read</em> channel provides high bandwidth communication from the controller to
-the host computer. Data from the read stream of all devices that support is is
+the host computer. Data from the read stream of all devices that support it is
 aggregated and multiplexed by the controller and sent to the host through this
 channel.</p>
 <p>Data should be pushed to this channel as quickly as possible. It is the
@@ -461,13 +460,13 @@ format</span></a> section.</p></li>
 <li><p><strong>Direction</strong> : Write</p></li>
 </ul>
 <p>The <em>write</em> channel provides high bandwidth communication from the host computer
-to the controller, used to send data to the devices.</p>
+to the controller, and is used to send data to the devices.</p>
 <p>Data is sent with a <a class="reference internal" href="#frame"><span class="std std-ref">frame</span></a> format identical to the one used for
 read, but without the <code class="docutils literal notranslate"><span class="pre">Common_Timestamp</span></code> field. It is the responsibility of
 the controller to accept frames at any rate the computer might be sending them.
 Currently, there is no defined mechanism to inform the host of any possible
 dropped frame on the write channel, although this can be included in an
-implementation so long as it does not invalidate other any other ONI
+implementation so long as it does not invalidate any other ONI
 requirements.</p>
 </section>
 <section id="signal-channel">
@@ -479,7 +478,7 @@ requirements.</p>
 </ul>
 <p>The <em>signal</em> channel provides a way for the controller to inform the host of
 configuration results, which may be provided with a significant delay.
-Additionally, it is the channel over which the controller send the device table
+Additionally, it is the channel over which the controller sends the device table
 to the host following a system reset. Signal data MUST be framed into packets
 using Consistent Overhead Byte Stuffing
 (<a class="reference external" href="https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing">COBS</a>).
@@ -648,7 +647,7 @@ performed. In this case, after a successful operation, <code class="docutils lit
 updated with value stored in the register at <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">Address</span></code> on the
 device at <code class="docutils literal notranslate"><span class="pre">Device</span> <span class="pre">Address</span></code>. If <code class="docutils literal notranslate"><span class="pre">Read/Write</span></code> is 1, <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">Value</span></code> is
 written to register at <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">Address</span></code> on the device at
-<code class="docutils literal notranslate"><span class="pre">Device</span> <span class="pre">Address</span></code>. The <code class="docutils literal notranslate"><span class="pre">Trigger</span></code> register is always be set low by the
+<code class="docutils literal notranslate"><span class="pre">Device</span> <span class="pre">Address</span></code>. The <code class="docutils literal notranslate"><span class="pre">Trigger</span></code> register is always set low by the
 controller following transmission even if it is not successful or does not
 make sense given the supplied register address and/or value.</p></li>
 </ul>
@@ -748,7 +747,7 @@ control over, the entire acquisition system:</p>
 stop the system clock and therefore stop data flow. Results in no other
 configuration changes.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Reset</span></code>: Set to &gt; 0 to trigger a hardware reset and send a fresh device
-map to the host. Devices are reset but their manages registers might remain
+map to the host. Devices are reset but their managed registers might remain
 unchanged, depending on their configuration (See the <a class="reference internal" href="devices.html#dev-register"><span class="std std-ref">Device registers</span></a> section for more information). Set to 0 by the controller
 upon entering the reset state.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">Clock</span></code>: A read-only register specifying the master hardware clock

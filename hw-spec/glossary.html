@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Hardware Hierarchy" href="hierarchy.html" />
-    <link rel="prev" title="Specification Goals" href="spec_goals.html" />
+    <link rel="prev" title="ONI Hardware Specification" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -318,7 +318,6 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="spec_goals.html">Specification Goals</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Glossary of Terms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hierarchy.html">Hardware Hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comm_channels.html">Channel Types</a></li>
@@ -403,7 +402,7 @@ these may each use a different <a class="reference internal" href="#term-Driver-
 interface.</p>
 </dd>
 <dt id="term-API">API<a class="headerlink" href="#term-API" title="Permalink to this term">#</a></dt><dd><p>ONI application programming interface that can be used to develop software
-to aquire from and control ONI-conforming hardware.</p>
+to aquire from and control ONI-compliant hardware.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../api/index.html#oni-api"><span class="std std-ref">ONI API Documentation</span></a></p>
@@ -411,11 +410,11 @@ to aquire from and control ONI-conforming hardware.</p>
 </dd>
 <dt id="term-Controller">Controller<a class="headerlink" href="#term-Controller" title="Permalink to this term">#</a></dt><dd><p>Hardware with a physical interface to the <a class="reference internal" href="#term-Host-Computer"><span class="xref std std-term">Host Computer</span></a> over a
 single <a class="reference internal" href="#term-Host-Interconnect"><span class="xref std std-term">Host Interconnect</span></a> using a <a class="reference internal" href="#term-Driver-Translator"><span class="xref std std-term">Driver Translator</span></a> and
-ONI-compliant <a class="reference internal" href="#term-API"><span class="xref std std-term">API</span></a> Multiple <a class="reference internal" href="#term-Controller"><span class="xref std std-term">controllers</span></a> can
+ONI-compliant <a class="reference internal" href="#term-API"><span class="xref std std-term">API</span></a>. Multiple <a class="reference internal" href="#term-Controller"><span class="xref std std-term">controllers</span></a> can
 coexist in a single <a class="reference internal" href="#term-Host-Computer"><span class="xref std std-term">Host Computer</span></a> and need not use the same
-<a class="reference internal" href="#term-Driver-Translator"><span class="xref std std-term">Driver Translator</span></a> Controllers communicate via <a class="reference internal" href="#term-API"><span class="xref std std-term">API</span></a> calls
+<a class="reference internal" href="#term-Driver-Translator"><span class="xref std std-term">Driver Translator</span></a>. Controllers communicate via <a class="reference internal" href="#term-API"><span class="xref std std-term">API</span></a> calls
 that manipulate an <a class="reference internal" href="#term-Acquisition-Context"><span class="xref std std-term">Acquisition Context</span></a> and a <a class="reference internal" href="#term-Device-Table"><span class="xref std std-term">Device Table</span></a> ,
-which affect controller state using via the driver translator. <a class="reference internal" href="#term-Hub"><span class="xref std std-term">Hubs</span></a> are connected to the controller where data to/from their devices is
+which affect controller state using the driver translator. <a class="reference internal" href="#term-Hub"><span class="xref std std-term">Hubs</span></a> are connected to the controller where data to/from their devices is
 packed and transmitted to/from the host computer. The controller contains a
 main clock which provides a common timestamp to all incoming data, and that
 can be synchronized with other controllers.</p>
@@ -462,15 +461,14 @@ write-size, burst read cycles, etc.</p>
 </dd>
 <dt id="term-Driver-Translator">Driver Translator<a class="headerlink" href="#term-Driver-Translator" title="Permalink to this term">#</a></dt><dd><p>A small <a class="reference external" href="https://en.wikipedia.org/wiki/Device_driver">device driver</a>
 translation library that converts abstract <a class="reference internal" href="#term-API"><span class="xref std std-term">API</span></a> calls to
-hardware-specific system calls that affect the :term`Controller
-&lt;controller&gt;` over the <a class="reference internal" href="#term-Host-Interconnect"><span class="xref std std-term">Host Interconnect</span></a>.</p>
+hardware-specific system calls that affect the <a class="reference internal" href="#term-Controller"><span class="xref std std-term">Controller</span></a> over the <a class="reference internal" href="#term-Host-Interconnect"><span class="xref std std-term">Host Interconnect</span></a>.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../api/index.html#oni-api"><span class="std std-ref">ONI API Documentation</span></a></p>
 </div>
 </dd>
 <dt id="term-Host-Computer">Host Computer<a class="headerlink" href="#term-Host-Computer" title="Permalink to this term">#</a></dt><dd><p>The computer supporting acquisition and processing from one or more
-<a class="reference internal" href="#term-Controller"><span class="xref std std-term">controllers</span></a> and running software implmented using the
+<a class="reference internal" href="#term-Controller"><span class="xref std std-term">controllers</span></a> and running software implemented using the
 <a class="reference internal" href="#term-API"><span class="xref std std-term">API</span></a>.</p>
 </dd>
 <dt id="term-Host-Interconnect">Host Interconnect<a class="headerlink" href="#term-Host-Interconnect" title="Permalink to this term">#</a></dt><dd><p>A hardware abstraction layer consisting of a physical bus (e.g. PCIe, USB,
@@ -478,13 +476,13 @@ or Ethernet) along with a <a class="reference internal" href="#term-Driver-Trans
 <a class="reference internal" href="#term-Controller"><span class="xref std std-term">Controller</span></a> uses to communicate with the <a class="reference internal" href="#term-Host-Computer"><span class="xref std std-term">Host Computer</span></a>.</p>
 </dd>
 <dt id="term-Hub">Hub<a class="headerlink" href="#term-Hub" title="Permalink to this term">#</a></dt><dd><p>A collection of <a class="reference internal" href="#term-Device"><span class="xref std std-term">Devices</span></a> that communicate with a
-<a class="reference internal" href="#term-Controller"><span class="xref std std-term">Controller</span></a> over a <a class="reference internal" href="#term-Port"><span class="xref std std-term">Port</span></a> and sharing a common
+<a class="reference internal" href="#term-Controller"><span class="xref std std-term">Controller</span></a> over a <a class="reference internal" href="#term-Port"><span class="xref std std-term">Port</span></a> and share a common
 clock. All data acquired by <a class="reference internal" href="#term-Device"><span class="xref std std-term">devices</span></a> in the same Hub are
 timestamped by this clock. Different Hubs may be governed by asynchronous
 clocks. A Hub either forms a portion of the <a class="reference internal" href="#term-Device-Table"><span class="xref std std-term">Device Table</span></a> or the
 entire <a class="reference internal" href="#term-Device-Table"><span class="xref std std-term">Device Table</span></a> if it contains all the <a class="reference internal" href="#term-Device"><span class="xref std std-term">devices</span></a>
 within the <a class="reference internal" href="#term-Acquisition-Context"><span class="xref std std-term">Acquisition Context</span></a>. Hubs can be exist in separate
-hardware from the <a class="reference internal" href="#term-Controller"><span class="xref std std-term">Controller</span></a> (remote hubs) or withing the
+hardware from the <a class="reference internal" href="#term-Controller"><span class="xref std std-term">Controller</span></a> (remote hubs) or within the
 <a class="reference internal" href="#term-Controller"><span class="xref std std-term">Controller</span></a> (local hubs).</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -512,12 +510,12 @@ wireless communication channel) or it could be a bus inside of the
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="spec_goals.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Specification Goals</p>
+        <p class="prev-next-title">ONI Hardware Specification</p>
       </div>
     </a>
     <a class="right-next"

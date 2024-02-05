@@ -318,7 +318,6 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="spec_goals.html">Specification Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary of Terms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hierarchy.html">Hardware Hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comm_channels.html">Channel Types</a></li>
@@ -403,7 +402,7 @@ register map, stream data format, along with general behavior of the device in
 order to reach ONI-compliance.</p>
 <section id="device-id">
 <span id="dev-id"></span><h2>Device ID<a class="headerlink" href="#device-id" title="Permalink to this heading">#</a></h2>
-<p>Different types of devices MUST have a unqiue identification integer called a
+<p>Different types of devices MUST have a unique identification integer called a
 Device ID. Device IDs are 32-bit integers with the following format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Reserved</span><span class="p">(</span><span class="mi">8</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span><span class="o">.</span><span class="n">Company</span><span class="p">(</span><span class="mi">8</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span><span class="o">.</span><span class="n">Device</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span>
 </pre></div>
@@ -413,14 +412,14 @@ Device ID. Device IDs are 32-bit integers with the following format:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">Company</span></code>: Any person, lab, institute, informal group, or company can
 communicate with Open Ephys in order to to obtain a unique 8-bit “Company”
 value, and thus be included in the automatic listings of existing ONI API
-implementations. Open Ephys is 0x0000.</p></li>
+implementations. Open Ephys is 0x00.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Device</span></code>: 16-bit Device ID. This number identifies not only the type of
 data produced or consumed by a device, but also a particular implementation.
 For instance, the same sensor will have a unique Device IDs for each digital
 module implementation that is used to communicate with it. This number can
 optionally be divided in two 8-bit values so long as the resulting 16-bit
 integer is unique within a particular “Company” (there is no need for unary
-are monotonic increments when new devices are introduced).</p></li>
+or monotonic increments when new devices are introduced).</p></li>
 </ul>
 </section>
 <section id="device-descriptor">
@@ -436,8 +435,8 @@ table</span></a>. The descriptor must contain the following information:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Device_ID</span></code>: <a class="reference internal" href="#dev-id"><span class="std std-ref">As previously described.</span></a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Device_Version</span></code>: A version number to distinguish between implementations
-of a singular device type. Different versions address minor issues that MUST
-NOT  change the device’s sample data format or alters an existing register
+of a singular device type. Different versions that address minor issues MUST
+NOT  change the device’s sample data format or alter an existing register
 map. However, register additions that do not affect the existing register map
 are allowed. Any change that warrants a modification of a device’s streaming
 data format, read size, write size, or existing register map MUST be
@@ -449,7 +448,7 @@ sample</span></a> consumed by the device from the <a class="reference internal" 
 </section>
 <section id="device-sample-format">
 <span id="dev-sample"></span><h2>Device Sample Format<a class="headerlink" href="#device-sample-format" title="Permalink to this heading">#</a></h2>
-<p>Data passed over the read or write streams is transmitted in unit packets,
+<p>Data passed over the read or write streams are transmitted in unit packets,
 or “samples”. A sample transmitted over the read stream MUST have the following
 format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint64</span>    <span class="n">Hub_Timestamp</span> <span class="p">(</span><span class="n">Read</span> <span class="n">Stream</span> <span class="n">Only</span><span class="p">)</span>
@@ -457,7 +456,7 @@ format:</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Hub_Timestamp</span></code>: For samples produced by the device and set to the read
+<li><p><code class="docutils literal notranslate"><span class="pre">Hub_Timestamp</span></code>: For samples produced by the device and sent to the read
 stream, this is a common counter for all devices in a <a class="reference internal" href="hubs.html#hub"><span class="std std-ref">Hub</span></a>,
 indicating the time of sample capture. For samples consumed by the device
 from the write stream, this value is reserved.</p></li>
@@ -490,7 +489,7 @@ hand, managed registers provide flexibility and abstract control over device
 state. For instance, managed registers may provide access to abstract properties
 that require access to multiple physical registers in hardware, which can all be
 completed in a single register read or write cycle. Thus the firmware can
-managing low-level raw access to the hardware, while exposing only high-level
+manage low-level raw access to the hardware, while exposing only high-level
 abstract registers in order to simplify the interface to user applications.</p>
 </section>
 <section id="register-access-and-update">
@@ -505,7 +504,7 @@ a Read-Write register, reading a register after being written must reflect the
 new value). However, the <em>effects</em> of a register might not occur until the next
 reset. An example of this type of behavior is registers that operate on the
 <a class="reference internal" href="#dev-desc"><span class="std std-ref">device descriptor</span></a>. The descriptor must be static during runtime,
-but registers affecting it might take action after a reset, providing an updates
+but registers affecting it might take action after a reset, providing an updated
 descriptor to the controller.</p>
 <p>Register access, bit-field definitions, reset behavior, and time of effect MUST
 be specified in the hardware datasheet for raw registers or the <a class="reference internal" href="#dev-datasheet"><span class="std std-ref">ONI Device
@@ -541,9 +540,9 @@ requirements for this field. (e.g. ChipXYX, Chip XYX, and My~Chip-12ab!, are
 all valid)</p></li>
 <li><p><strong>Author(s)</strong>: Device firmware or chip creator(s). Can be a person/people or
 a company, group, or organization.</p></li>
-<li><p><strong>Device Version</strong>: The <cite>device version &lt;dev-desc&gt;</cite> that this datasheet
+<li><p><strong>Device Version</strong>: The <a class="reference internal" href="#dev-desc"><span class="std std-ref">device version</span></a> that this datasheet
 corresponds to.</p></li>
-<li><p><strong>Device ID</strong>: The <cite>device ID &lt;dev-id&gt;</cite> that this datasheet corresponds
+<li><p><strong>Device ID</strong>: The <a class="reference internal" href="#dev-id"><span class="std std-ref">device ID</span></a> that this datasheet corresponds
 to.</p></li>
 </ol>
 </section>
@@ -555,30 +554,26 @@ for understanding the nature of the device during their work.</p>
 </section>
 <section id="id1">
 <h3>Register Map<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<section id="unmanaged-registers">
-<h4>Unmanaged Registers<a class="headerlink" href="#unmanaged-registers" title="Permalink to this heading">#</a></h4>
-<p>If the device uses <cite>unmanaged registers &lt;reg-type&gt;</cite>, then a link to the
+<section id="raw-registers">
+<h4>Raw Registers<a class="headerlink" href="#raw-registers" title="Permalink to this heading">#</a></h4>
+<p>If the device uses <a class="reference internal" href="#reg-type"><span class="std std-ref">raw registers</span></a>, then a link to the
 manufacturer’s datasheet is all that is required so long as it contains the
-register documentation equivalent to that required by <cite>managed registers
-&lt;dev-ds-managed-reg&gt;</cite>. However, the register map can also be reproduced for
+register documentation equivalent to that required by <a class="reference internal" href="#reg-type"><span class="std std-ref">managed registers</span></a>. However, the register map can also be reproduced for
 clarity or if the manufacturer’s datasheet is missing required information.</p>
 </section>
 <section id="managed-registers">
-<span id="dev-ds-managed-reg"></span><h4>Managed Registers<a class="headerlink" href="#managed-registers" title="Permalink to this heading">#</a></h4>
+<h4>Managed Registers<a class="headerlink" href="#managed-registers" title="Permalink to this heading">#</a></h4>
 <p>If the device uses <a class="reference internal" href="#reg-type"><span class="std std-ref">managed registers</span></a>, a table that describes the
 managed register map is required. There are no formatting requirements for this
 table, but it MUST contain the following columns</p>
 <ul class="simple">
 <li><p><strong>Address</strong>: Register address within the <a class="reference internal" href="#dev-reg-map"><span class="std std-ref">register map</span></a>.</p></li>
-<li><dl class="simple">
-<dt><strong>Name</strong>: Human readable name for the register. Only capital ASCII letters</dt><dd><p>and underscores are allowed, with no spaces or special characters (e.g.
-<code class="docutils literal notranslate"><span class="pre">VALID</span></code> and <code class="docutils literal notranslate"><span class="pre">ALSO_VALID</span></code> vs. <code class="docutils literal notranslate"><span class="pre">NotValid</span></code> and <code class="docutils literal notranslate"><span class="pre">ALSO-NOT-VALID</span></code>).</p>
-</dd>
-</dl>
-</li>
+<li><p><strong>Name</strong>: Human readable name for the register. Only capital ASCII letters
+and underscores are allowed, with no spaces or special characters (e.g.
+<code class="docutils literal notranslate"><span class="pre">VALID</span></code> and <code class="docutils literal notranslate"><span class="pre">ALSO_VALID</span></code> vs. <code class="docutils literal notranslate"><span class="pre">NotValid</span></code> and <code class="docutils literal notranslate"><span class="pre">ALSO-NOT-VALID</span></code>).</p></li>
 <li><p><strong>Access</strong>: Read-only, write-only, or read-write.</p></li>
-<li><p><strong>Time of Effect</strong>: When does a register write affect hardware state.
-Immediate or following reset.</p></li>
+<li><p><strong>Time of Effect</strong>: When does a register write affect hardware state?
+Immediately or following reset?</p></li>
 <li><p><strong>POR Value</strong>: Power-on reset default value.</p></li>
 <li><p><strong>Reset Action</strong>: Upon a reset, what happens to the register? Does it
 maintain its previous state or get reset to some value? If the latter, then
@@ -666,7 +661,7 @@ no frames are accepted, then a statement of such is required.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preamble">Preamble</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Register Map</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unmanaged-registers">Unmanaged Registers</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-registers">Raw Registers</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#managed-registers">Managed Registers</a></li>
 </ul>
 </li>

@@ -318,7 +318,6 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="spec_goals.html">Specification Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary of Terms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hierarchy.html">Hardware Hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comm_channels.html">Channel Types</a></li>
@@ -423,13 +422,13 @@ of <a class="reference internal" href="devices.html#dev-desc"><span class="std s
 <section id="device-address">
 <span id="dev-address"></span><h2>Device Address<a class="headerlink" href="#device-address" title="Permalink to this heading">#</a></h2>
 <p>Each <a class="reference internal" href="devices.html#dev-desc"><span class="std std-ref">device descriptor</span></a> entry in the device table requires a
-device address. This is is a unique, 32-bit number with the following format:</p>
+device address. This is a unique, 32-bit number with the following format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Reserved</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span><span class="o">.</span><span class="n">Hub_Index</span><span class="p">(</span><span class="mi">8</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span><span class="o">.</span><span class="n">Device_Index</span><span class="p">(</span><span class="mi">8</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Reserved</span></code>: Reserved bits. Must be all zeros.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Hub_Index</span></code>: The index of the <a class="reference internal" href="hubs.html#hub"><span class="std std-ref">hub</span></a> within the <a class="reference internal" href="controller.html#controller"><span class="std std-ref">controller</span></a> that the devie is managed by.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Hub_Index</span></code>: The index of the <a class="reference internal" href="hubs.html#hub"><span class="std std-ref">hub</span></a> within the <a class="reference internal" href="controller.html#controller"><span class="std std-ref">controller</span></a> that the device is managed by.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Device_Index</span></code>: A unique index of each device within its <a class="reference internal" href="hubs.html#hub"><span class="std std-ref">hub</span></a>.
 A valid <code class="docutils literal notranslate"><span class="pre">Device_Index</span></code> ranges from 0 to 0xFD. 0xFE is reserved and 0xFF
 indicates an invalid device.</p></li>

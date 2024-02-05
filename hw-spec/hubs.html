@@ -318,7 +318,6 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="spec_goals.html">Specification Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary of Terms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hierarchy.html">Hardware Hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comm_channels.html">Channel Types</a></li>
@@ -390,19 +389,18 @@ hardware aggregates connected to the controller (e.g. a headstage for neural
 acquisition) or a logical partition of existing hardware (e.g. a collection of
 devices implemented in the same firmware as the controller). Hubs that exist on
 hardware that is physically separated from the <a class="reference internal" href="controller.html#controller"><span class="std std-ref">controller</span></a> are
-referred as remote hubs, while a hubs existing on the controller are local hubs.
+referred as remote hubs, while hubs existing on the controller are local hubs.
 An ONI-compliant system MUST implement at least one local hub, located at
 <a class="reference internal" href="dev_table.html#dev-address"><span class="std std-ref">Hub_Index 0</span></a> and sharing the clock of controller’s main
 state machine, and can implement up to 253 additional hubs, local or remote. All
-devices reflecting or modifying <a class="reference internal" href="controller.html#controller"><span class="std std-ref">controller</span></a> state the
-controller and/or reporting errors or similar status messages must be
-implemented in local hub 0.</p>
-<p>Every hub MUST have access high-resolution timer that is used by all its devices
-when to generate a <code class="docutils literal notranslate"><span class="pre">Hub_Timestamp</span></code> for a <a class="reference internal" href="devices.html#dev-sample"><span class="std std-ref">data sample</span></a>.</p>
+devices reflecting or modifying the <a class="reference internal" href="controller.html#controller"><span class="std std-ref">controller</span></a> state and/or
+reporting errors or similar status messages must be implemented in local hub 0.</p>
+<p>Every hub MUST have access to a high-resolution timer that is used by all its devices
+to generate a <code class="docutils literal notranslate"><span class="pre">Hub_Timestamp</span></code> for a <a class="reference internal" href="devices.html#dev-sample"><span class="std std-ref">data sample</span></a>.</p>
 <p>Data from all the devices of a hub is collected and passed to the controller.
 The specific interface between a hub and the controller is highly
 implementation-dependent and, thus, not in the scope of this document. In
-anycase, it is the duty of the hub to to provide the controller with all the
+any case, it is the duty of the hub to to provide the controller with all the
 device descriptors and communication channels in a transparent manner. It is
 common for a remote hub to feature a centralized IC (e.g. an FPGA or
 microcontroller) integrating the device controllers and communication interface
@@ -466,7 +464,7 @@ ignored.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Company</span></code>: Any person, lab, institute, informal group, or company can
 communicate with Open Ephys in order to to obtain a unique 8-bit “Company”
 value, and thus be included in the automatic listings of existing ONI API
-implementations. Open Ephys is 0x0000.</p></li>
+implementations. Open Ephys is 0x00.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Hub</span></code>: 16-bit Hub ID. This number usually identifies a physical product
 and would correpond to a stock keeping unit SKU) or part number in a
 commercial setting. However, there is no formal restriction on these bits

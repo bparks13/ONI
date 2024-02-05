@@ -359,20 +359,41 @@ document.write(`
 </div>
 <section id="open-neuro-interface">
 <h1>Open Neuro Interface<a class="headerlink" href="#open-neuro-interface" title="Permalink to this heading">#</a></h1>
-<p>ONI is a hardware specification and API that facilitiates that creation of
+<p>ONI is a hardware specification and API that facilitiates the creation of
 tools for neural data acquisition. This standard allows the creation of neural
 recording devices that support <strong>arbitrary mixtures of sensors, probes, and
 actuators</strong>. The hope is that ONI will streamline the development of new
 hardware for neural data acquisition and guarantee interoperability between
-ONI-compliant hardware and software. We also hope that the use of a common
+ONI-compliant hardware and software. We also hope that the use of common
 protocols will allow easy integration of disparate hardware to develop rich
 feedback control loops for neuroscience projects. If you are interested in
 developing against this specification (e.g. for a miniscope, headstage,
 position tracker, 2P microscope, etc) or improving it, we would love to <a class="reference external" href="https://open-ephys.org/contact">hear
 from you</a> and talk about the best way to
 proceed.</p>
+<section id="specification-goals">
+<h2>Specification Goals<a class="headerlink" href="#specification-goals" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Potential for low latency round trip times with a computer in the loop</p></li>
+<li><p>Potential for high-bandwidth, bidirectional communication (thousands of
+neural data channels; multiple high-resolution cameras)</p></li>
+<li><p>Acquisition and control of arbitrary hardware components using a common
+computer interface</p>
+<ul>
+<li><p>Support generic mixes of data sources and sinks from multiple,
+asynchronous pieces of hardware</p></li>
+<li><p>Generic, system-wide hardware configuration</p></li>
+<li><p>Generic, system-wide, bidirectional data streaming</p></li>
+</ul>
+</li>
+<li><p>Hardware synchronization of multiple systems on a single host computers or
+across multiple host computers</p></li>
+<li><p>Cross platform</p></li>
+<li><p>Aimed at the creation of interoperable physical devices, gateware, firmware,
+and APIs</p></li>
+</ul>
 <section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
+<h3>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h3>
 <dl class="simple">
 <dt><a class="reference internal" href="hw-spec/index.html#oni-hw"><span class="std std-ref">ONI Hardware Specification</span></a></dt><dd><p>Create ONI-compliant hardware.</p>
 </dd>
@@ -381,9 +402,10 @@ proceed.</p>
 </dl>
 </section>
 <section id="contributing">
-<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading">#</a></h2>
+<h3>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading">#</a></h3>
 <p>The main branch contains the stable version of the specification. The unstable
 work in progress version can be found in the branch indicating the version.</p>
+</section>
 </section>
 </section>
 
@@ -425,8 +447,11 @@ work in progress version can be found in the branch indicating the version.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-goals">Specification Goals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

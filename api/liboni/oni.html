@@ -838,13 +838,13 @@ character, if applicable) in bytes.</p></li>
 current device table. This can be used to verify the success of calls to
 <a class="reference internal" href="#c.oni_write_reg" title="oni_write_reg"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_write_reg()</span></code></a> or to obtain state information about devices managed
 by the current acquisition context. Register specifications (addresses,
-read- and write-access, and descriptions are provided on the <a class="reference internal" href="../../hw-spec/devices.html#dev-datasheet"><span class="std std-ref">ONI-device
-datasheet</span></a>).</p>
+read- and write-access, and descriptions) are provided on the <a class="reference internal" href="../../hw-spec/devices.html#dev-datasheet"><span class="std std-ref">ONI-device
+datasheet</span></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context that manages the requested device</p></li>
-<li><p><strong>dev_idx</strong> – fully-qualifies device index within the device table</p></li>
+<li><p><strong>dev_idx</strong> – fully-qualified device index within the device table</p></li>
 <li><p><strong>addr</strong> – Address of register to be read</p></li>
 <li><p><strong>value</strong> – Pointer to an unsigned integer that will store the value
 of the register at <code class="docutils literal notranslate"><span class="pre">addr</span></code> on <code class="docutils literal notranslate"><span class="pre">dev_idx</span></code>.</p></li>
@@ -865,9 +865,9 @@ of the register at <code class="docutils literal notranslate"><span class="pre">
 <dd><p>Change the value of a configuration register from specific devices within
 the current device table. This can be used to change the functionality of
 devices, e.g. set filter bandwidth, select active channels, or change
-stimulation parameters).  Register specifications (addresses, read- and
-write-access, acceptable values, and descriptions are provided on the
-<a class="reference internal" href="../../hw-spec/devices.html#dev-datasheet"><span class="std std-ref">ONI-device datasheet</span></a>).</p>
+stimulation parameters.  Register specifications (addresses, read- and
+write-access, acceptable values, and descriptions) are provided on the
+<a class="reference internal" href="../../hw-spec/devices.html#dev-datasheet"><span class="std std-ref">ONI-device datasheet</span></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -893,7 +893,7 @@ write-access, acceptable values, and descriptions are provided on the
 <a class="reference internal" href="#c.oni_read_frame" title="oni_read_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_read_frame()</span></code></a> allocates host memory and populates it with a single
 <a class="reference internal" href="#c.oni_frame_t" title="oni_frame_t"><code class="xref c c-struct docutils literal notranslate"><span class="pre">oni_frame_t</span></code></a> struct using the data input stream. This call will
 block until either enough data available on the stream to construct an
-underlying block buffer (see :macro:ONI_OPT_BLOCKREADSIZE and
+underlying block buffer (see <a class="reference internal" href="onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_BLOCKREADSIZE" title="ONI_OPT_BLOCKREADSIZE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_BLOCKREADSIZE</span></code></a> and
 <a class="reference internal" href="liboni-example.html#liboni-example-set-buffers"><span class="std std-ref">Setting Read and Write Buffer Sizes</span></a>). <a class="reference internal" href="#c.oni_frame_t" title="oni_frame_t"><code class="xref c c-struct docutils literal notranslate"><span class="pre">oni_frame_t</span></code></a>’s created during
 calls to <a class="reference internal" href="#c.oni_read_frame" title="oni_read_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_read_frame()</span></code></a> are zero-copy views into this buffer.</p>
 <div class="admonition attention">
@@ -922,7 +922,7 @@ channel that the frame will be read from</p></li>
 <dl class="c function">
 <dt class="sig sig-object c" id="c.oni_create_frame">
 <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_create_frame</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><span class="n"><span class="pre">oni_ctx</span></span></a><span class="w"> </span><span class="n"><span class="pre">ctx</span></span>, <a class="reference internal" href="#c.oni_frame_t" title="oni_frame_t"><span class="n"><span class="pre">oni_frame_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">frame</span></span>, <a class="reference internal" href="onidefs.html#c.oni_dev_idx_t" title="oni_dev_idx_t"><span class="n"><span class="pre">oni_dev_idx_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">dev_idx</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">data_sz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.oni_create_frame" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Create an :oni_frame_t` for consumption by <a class="reference internal" href="#c.oni_write_frame" title="oni_write_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_write_frame()</span></code></a>.</p>
+<dd><p>Create an <a class="reference internal" href="#c.oni_frame_t" title="oni_frame_t"><code class="xref c c-struct docutils literal notranslate"><span class="pre">oni_frame_t</span></code></a> for consumption by <a class="reference internal" href="#c.oni_write_frame" title="oni_write_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_write_frame()</span></code></a>.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>It is the user’s responsibility to free the resources allocated by
@@ -996,7 +996,7 @@ applications.</p>
 <dd><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Each call to <a class="reference internal" href="#c.oni_create_frame" title="oni_create_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_create_frame()</span></code></a> or <a class="reference internal" href="#c.oni_read_frame" title="oni_read_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_read_frame()</span></code></a>
-must matched by a  call to <a class="reference internal" href="#c.oni_destroy_frame" title="oni_destroy_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_destroy_frame()</span></code></a> to prevent memory
+must be matched by a call to <a class="reference internal" href="#c.oni_destroy_frame" title="oni_destroy_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_destroy_frame()</span></code></a> to prevent memory
 leaks.</p>
 </div>
 </dd></dl>
@@ -1006,14 +1006,14 @@ leaks.</p>
 <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_version</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">major</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">minor</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">patch</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.oni_version" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Report the liboni library version. This library uses <a class="reference external" href="https://semver.org/">Semantic Versioning</a>. Briefly, the major revision is for incompatible API
 changes. Minor version is for backwards compatible changes. The patch
-number is for backwards-compatible bug fixes. When this function returns,
+number is for backwards compatible bug fixes. When this function returns,
 input pointers will reference the library’s version.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>major</strong> – major library version for incompatible API changes</p></li>
 <li><p><strong>minor</strong> – minor library version for backwards compatible changes.</p></li>
-<li><p><strong>patch</strong> – patch number for backwards-compatible bug fixes.</p></li>
+<li><p><strong>patch</strong> – patch number for backwards compatible bug fixes.</p></li>
 </ul>
 </dd>
 </dl>

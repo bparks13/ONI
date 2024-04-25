@@ -482,7 +482,7 @@ Device table.</p>
 <td><p><a class="reference internal" href="oni.html#c.oni_device_t" title="oni_device_t"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_device_t</span></code></a> *</p></td>
 </tr>
 <tr class="row-even"><td><p>Option description</p></td>
-<td><p>Pointer to a pre-allocated array of :type:oni_device_t structs</p></td>
+<td><p>Pointer to a pre-allocated array of <a class="reference internal" href="oni.html#c.oni_device_t" title="oni_device_t"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_device_t</span></code></a> structs</p></td>
 </tr>
 <tr class="row-odd"><td><p>Default value</p></td>
 <td><p>N/A</p></td>
@@ -726,7 +726,7 @@ every device within the device table that generates read data.</p>
 <dt class="sig sig-object c" id="c.&#64;ctx_opts_enum.ONI_OPT_MAXWRITEFRAMESIZE">
 <span class="sig-name descname"><span class="n"><span class="pre">ONI_OPT_MAXWRITEFRAMESIZE</span></span></span><a class="headerlink" href="#c.@ctx_opts_enum.ONI_OPT_MAXWRITEFRAMESIZE" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">9</span></code>)
-The maximal size of a (single-packet) <a class="reference internal" href="oni.html#c.oni_frame_t" title="oni_frame_t"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_frame_t</span></code></a> comsumed by a
+The maximal size of a (single-packet) <a class="reference internal" href="oni.html#c.oni_frame_t" title="oni_frame_t"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_frame_t</span></code></a> consumed by a
 call to <a class="reference internal" href="oni.html#c.oni_write_frame" title="oni_write_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_write_frame()</span></code></a> in bytes.  This number is the maximum
 sized frame that can be consumed across every device within the device
 table that accepts write data.</p>
@@ -1009,6 +1009,20 @@ Frame allocation attempted for a non-writable device</p>
 <span class="sig-name descname"><span class="n"><span class="pre">ONI_EDEVIDXREPEAT</span></span></span><a class="headerlink" href="#c.@oni_error_enum.ONI_EDEVIDXREPEAT" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">-26</span></code>)
 Device table contains repeated device indices</p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.&#64;oni_error_enum.ONI_EPROTCONFIG">
+<span class="sig-name descname"><span class="n"><span class="pre">ONI_EPROTCONFIG</span></span></span><a class="headerlink" href="#c.@oni_error_enum.ONI_EPROTCONFIG" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>(<code class="docutils literal notranslate"><span class="pre">-27</span></code>)
+Attempted to directly read or write a protected configuration option</p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.&#64;oni_error_enum.ONI_EBADFRAME">
+<span class="sig-name descname"><span class="n"><span class="pre">ONI_EBADFRAME</span></span></span><a class="headerlink" href="#c.@oni_error_enum.ONI_EBADFRAME" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>(<code class="docutils literal notranslate"><span class="pre">-28</span></code>)
+Received malformed frame</p>
 </dd></dl>
 
 </dd></dl>

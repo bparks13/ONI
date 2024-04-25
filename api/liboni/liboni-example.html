@@ -421,16 +421,16 @@ for real world applications. For instance:</p>
 </div>
 <section id="acquisition-context-creation">
 <span id="liboni-example-ctx-creation"></span><h2>Acquisition Context Creation<a class="headerlink" href="#acquisition-context-creation" title="Permalink to this heading">#</a></h2>
-<p>Every piece of ONI-complaint host hardware (occupying a single PCIe slot, USB
+<p>Every piece of ONI-compliant host hardware (occupying a single PCIe slot, USB
 port, etc) is governed by an acquisition context. Contexts are fully described
 by two parameters: a string specifying the hardware driver and an integer
 specifying which slot the physical hardware occupies on the host computer.
 Context creation and initialization occurs in two function calls.
 <a class="reference internal" href="oni.html#c.oni_create_ctx" title="oni_create_ctx"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_create_ctx()</span></code></a> allocates API-internal resources to hold context state and
 returns a handle to the context. <a class="reference internal" href="oni.html#c.oni_init_ctx" title="oni_init_ctx"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_init_ctx()</span></code></a> loads the required driver,
-attempts to connect to the hardware (open communication channels), and,
-finally, obtain a device table that maps the acquisition hierarchy governed by
-the context. So, for instance, to create an initialize an acquisition context
+attempts to connect to the hardware (opens communication channels), and,
+finally, obtains a device table that maps the acquisition hierarchy governed by
+the context. So, for instance, to create and initialize an acquisition context
 to govern a PCIe acquisition card using the <a class="reference external" href="https://github.com/KastnerRG/riffa">RIFFA</a> driver, you would use</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">oni_create_ctx</span><span class="p">(</span><span class="s">&quot;riffa&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;riffa&quot; is the driver name</span>
 <span class="n">oni_init_ctx</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// 0 is the host index. You can use -1 to get default slot</span>
@@ -443,11 +443,11 @@ manage the hardware at the specified host index using the specified driver.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Specifying a host index of -1 will open the default slot and is
-useful in cases where there is only on piece of acquisition hardware in the
+useful in cases where there is only one piece of acquisition hardware in the
 host computer (e.g. a single PCIe card).</p>
 </div>
 <p>When multiple pieces of host hardware exist on a single host (e.g. multiple
-PCIe cards), a new context must be created and initialization to manage each
+PCIe cards), a new context must be created and initialized to manage each
 one. In some cases (e.g. multiple PCIe cards in a single computer), these
 contexts can be synchronized so that each host receiver board shares a common
 hardware clock and acquisition trigger (see <a class="reference internal" href="#sync-ctx"><span class="std std-ref">Synchronizing Contexts</span></a> for an example).
@@ -459,7 +459,7 @@ synchronized.</p>
 initialized context.  Doing so will return an error.</p>
 </div>
 <p>If the device configuration is changed following context initialization (e.g. a
-headstage is plugged in or turned on), a context reset must be issued which to
+headstage is plugged in or turned on), a context reset must be issued to
 instruct the initialized context to re-evaluate its device table. This can be
 done via</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">oni_size_t</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -496,7 +496,7 @@ space to hold the table, and then populate it:</p>
 defined as:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">oni_size_t</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span><span class="w">           </span><span class="c1">// Complete rsv.rsv.hub.idx device table index</span>
-<span class="w">    </span><span class="n">oni_dev_id_t</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">          </span><span class="c1">// Device ID number (see oedevices.h)</span>
+<span class="w">    </span><span class="n">oni_dev_id_t</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">          </span><span class="c1">// Device ID number (see onix.h)</span>
 <span class="w">    </span><span class="n">oni_size_t</span><span class="w"> </span><span class="n">read_size</span><span class="p">;</span><span class="w">     </span><span class="c1">// Device data read size per frame in bytes</span>
 <span class="w">    </span><span class="n">oni_size_t</span><span class="w"> </span><span class="n">write_size</span><span class="p">;</span><span class="w">    </span><span class="c1">// Device data write size per frame in bytes</span>
 
@@ -546,7 +546,7 @@ the device does not exist in the device table, or the register is read-only.</p>
 <p>After context initialization, the internal read and write buffers can be
 manually specified. These buffers exist in order to reduce copying.</p>
 <ul class="simple">
-<li><p>During a called <code class="docutils literal notranslate"><span class="pre">oni_read_frame</span></code>, the read buffer is checked to see if it
+<li><p>During a call to <code class="docutils literal notranslate"><span class="pre">oni_read_frame</span></code>, the read buffer is checked to see if it
 contains data. If so, the return frame is simply a zero-copy “view” into this
 memory.  If not, a block read is performed to fill the buffer, and again, the
 frame is a view into the beginning of this newly allocated block.</p></li>
@@ -563,7 +563,7 @@ allocation rate and decrease the maximum bandwidth of the read link.</p>
 tunable by the user to optimize for different computer capabilities, data
 bandwidths, and required response latencies. The buffer sizes default to the
 minimum size for a given device table (the maximum frame read and write sizes
-across devices int the table aligned to the bus width of hardware communication
+across devices in the table aligned to the bus width of hardware communication
 link). This provides the lowest latency, but is optimal only for very low
 bandwidth acquisition and deterministic and low-latency threads (e.g. those
 found on real-time operating system). On a normal computer, these buffers can
@@ -623,7 +623,7 @@ write 2 to the <code class="docutils literal notranslate"><span class="pre">ONI_
 <span class="n">oni_set_opt</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span><span class="w"> </span><span class="n">ONI_OPT_RESETACQCOUNTER</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">reg</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">oni_size_t</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>This will reset the clock and automatically start acquisition (set
+<p>This will reset the clock and automatically start acquisition (this sets
 <code class="docutils literal notranslate"><span class="pre">ONI_OPT_RUNNING</span></code> to 1).</p>
 </section>
 <section id="reading-data-frames">
@@ -642,7 +642,7 @@ data blocks from a single device within the device table. A
 <p>where <code class="docutils literal notranslate"><span class="pre">dev_idx</span></code> is the fully qualified device index within the device table
 (hub.index), <code class="docutils literal notranslate"><span class="pre">data_sz</span></code> is the size in bytes of the raw data block, <code class="docutils literal notranslate"><span class="pre">time</span></code>
 is the system clock count that indicates the frame creation time, and, <code class="docutils literal notranslate"><span class="pre">data</span></code>
-is a pointer to the raw data block. A single frames can be read from an
+is a pointer to the raw data block. A single frame can be read from an
 acquisition context after it is started (see <a class="reference internal" href="#start-ctx"><span class="std std-ref">Starting Acquisition</span></a>) using repeated
 calls to <code class="docutils literal notranslate"><span class="pre">oni_read_frame</span></code> as follows:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Read a frame</span>

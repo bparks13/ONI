@@ -523,7 +523,7 @@ hardware access as needed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>driver_ctx</strong> – Handle to the context to initialized</p></li>
+<li><p><strong>driver_ctx</strong> – Handle to the context to be initialized</p></li>
 <li><p><strong>host_idx</strong> – Index of the hardware device to open. The enumeration depends
 on the specific hardware. <code class="docutils literal notranslate"><span class="pre">-1</span></code> always means open the first available device</p></li>
 </ul>
@@ -549,7 +549,7 @@ on the specific hardware. <code class="docutils literal notranslate"><span class
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Bytes retrieved in case of a successful read, see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a> otherwise. If the amount
-of retrieved bytes were different from <code class="docutils literal notranslate"><span class="pre">size</span></code>, it would be also treated as an error by the API.</p>
+of retrieved bytes were different from <code class="docutils literal notranslate"><span class="pre">size</span></code>, it would also be treated as an error by the API.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -563,7 +563,7 @@ of retrieved bytes were different from <code class="docutils literal notranslate
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>driver_ctx</strong> – Context handling the device driver translator state</p></li>
 <li><p><strong>stream</strong> – The output stream to perform the write operation on</p></li>
-<li><p><strong>data</strong> – Pointer to the data buffer. It must contain the amoutn of data requested to write</p></li>
+<li><p><strong>data</strong> – Pointer to the data buffer. It must contain the amount of data requested to write</p></li>
 <li><p><strong>size</strong> – Size, in bytes, of the data to write.</p></li>
 </ul>
 </dd>
@@ -576,7 +576,7 @@ of retrieved bytes were different from <code class="docutils literal notranslate
 <dl class="c function">
 <dt class="sig sig-object c" id="c.oni_driver_read_config">
 <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_driver_read_config</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.oni_driver_ctx" title="oni_driver_ctx"><span class="n"><span class="pre">oni_driver_ctx</span></span></a><span class="w"> </span><span class="n"><span class="pre">driver_ctx</span></span>, <a class="reference internal" href="onidefs.html#c.oni_config_t" title="oni_config_t"><span class="n"><span class="pre">oni_config_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">config</span></span>, <a class="reference internal" href="onidefs.html#c.oni_reg_val_t" title="oni_reg_val_t"><span class="n"><span class="pre">oni_reg_val_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.oni_driver_read_config" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Performs a read operation from one of the hardware configuration registers described on the ONI specification.</p>
+<dd><p>Performs a read operation from one of the hardware configuration registers described in the ONI specification.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -594,7 +594,7 @@ of retrieved bytes were different from <code class="docutils literal notranslate
 <dl class="c function">
 <dt class="sig sig-object c" id="c.oni_driver_write_config">
 <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_driver_write_config</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.oni_driver_ctx" title="oni_driver_ctx"><span class="n"><span class="pre">oni_driver_ctx</span></span></a><span class="w"> </span><span class="n"><span class="pre">driver_ctx</span></span>, <a class="reference internal" href="onidefs.html#c.oni_config_t" title="oni_config_t"><span class="n"><span class="pre">oni_config_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">config</span></span>, <a class="reference internal" href="onidefs.html#c.oni_reg_val_t" title="oni_reg_val_t"><span class="n"><span class="pre">oni_reg_val_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.oni_driver_write_config" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Performs a write operation to one of the hardware configuration registers described on the ONI specification.</p>
+<dd><p>Performs a write operation to one of the hardware configuration registers described in the ONI specification.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -634,8 +634,7 @@ not used, it is safe to do nothing and return <a class="reference internal" href
 <dt class="sig sig-object c" id="c.oni_driver_set_opt">
 <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_driver_set_opt</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.oni_driver_ctx" title="oni_driver_ctx"><span class="n"><span class="pre">oni_driver_ctx</span></span></a><span class="w"> </span><span class="n"><span class="pre">driver_ctx</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">driver_option</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">option_len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.oni_driver_set_opt" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Sets an internal option specific to the driver translator. Called directly by <a class="reference internal" href="oni.html#c.oni_set_driver_opt" title="oni_set_driver_opt"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_set_driver_opt()</span></code></a>.
-If not such options exist in a specific driver
-this can be an empty function returning <a class="reference internal" href="onidefs.html#c.&#64;oni_error_enum.ONI_EINVALOPT" title="ONI_EINVALOPT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_EINVALOPT</span></code></a>.</p>
+If no such options exist in a specific driver this can be an empty function returning <a class="reference internal" href="onidefs.html#c.&#64;oni_error_enum.ONI_EINVALOPT" title="ONI_EINVALOPT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_EINVALOPT</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -656,8 +655,7 @@ character, if applicable) in bytes.</p></li>
 <dt class="sig sig-object c" id="c.oni_driver_get_opt">
 <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_driver_get_opt</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.oni_driver_ctx" title="oni_driver_ctx"><span class="n"><span class="pre">oni_driver_ctx</span></span></a><span class="w"> </span><span class="n"><span class="pre">driver_ctx</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">driver_option</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">option_len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.oni_driver_get_opt" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Reads an internal option specific to the driver translator. Called directly by <a class="reference internal" href="oni.html#c.oni_get_driver_opt" title="oni_get_driver_opt"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_get_driver_opt()</span></code></a>.
-If not such options exist in a specific driver
-this can be an empty function returning <a class="reference internal" href="onidefs.html#c.&#64;oni_error_enum.ONI_EINVALOPT" title="ONI_EINVALOPT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_EINVALOPT</span></code></a>.</p>
+If no such options exist in a specific driver this can be an empty function returning <a class="reference internal" href="onidefs.html#c.&#64;oni_error_enum.ONI_EINVALOPT" title="ONI_EINVALOPT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_EINVALOPT</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

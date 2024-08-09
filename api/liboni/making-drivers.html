@@ -439,7 +439,7 @@ of the driver translator itself.</p>
 in <a class="reference internal" href="onidriver.html#c.oni_driver_create_ctx" title="oni_driver_create_ctx"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_driver_create_ctx()</span></code></a> and accessed through the <a class="reference internal" href="onidriver.html#c.oni_driver_ctx" title="oni_driver_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_driver_ctx</span></code></a>
 parameter present in most function calls. No static variables can be used to
 keep any state information. This is necessary for multiple instances of the driver
-to exist simultaneously, acessing different devices of the same type.</p>
+to exist simultaneously, accessing different devices of the same type.</p>
 </div>
 <p>An example of such a context for a simple, file-descriptor accessed device,
 could be</p>
@@ -514,7 +514,7 @@ operation.</p>
 <p><a class="reference internal" href="oni.html#c.oni_destroy_ctx" title="oni_destroy_ctx"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_destroy_ctx()</span></code></a> must close any open hardware connection and release
 all allocated resources.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Context managment examples</span><a class="headerlink" href="#id1" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Context management examples.</span><a class="headerlink" href="#id1" title="Permalink to this code">#</a></div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">oni_driver_ctx</span><span class="w"> </span><span class="nf">oni_driver_create_ctx</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">simple_driver_ctx</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">calloc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">simple_driver_ctx_impl</span><span class="p">));</span>
@@ -572,7 +572,7 @@ interface used.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Read operations must return the same number of bytes as requested, or it will be treated as an error</p>
+<p>Read operations must return the same number of bytes as requested, or it will be treated as an error.</p>
 </div>
 </section>
 <section id="register-access">
@@ -587,7 +587,7 @@ An example would be a device that requires some additional low-level actions, be
 trigger, when performing a reset or starting/stopping acquisition.</p>
 </div>
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Examples of register access</span><a class="headerlink" href="#id3" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Examples of register access.</span><a class="headerlink" href="#id3" title="Permalink to this code">#</a></div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">oni_driver_read_config</span><span class="p">(</span><span class="n">oni_driver_ctx</span><span class="w"> </span><span class="n">driver_ctx</span><span class="p">,</span><span class="w"> </span><span class="n">oni_config_t</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">oni_reg_val_t</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">CTX_CAST</span><span class="p">;</span>
@@ -636,7 +636,7 @@ has been loaded, while an extra action in <a class="reference internal" href="on
 would act before, during low-level register access.</p>
 </div>
 <div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Example post-option callback</span><a class="headerlink" href="#id4" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Example post-option callback.</span><a class="headerlink" href="#id4" title="Permalink to this code">#</a></div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">oni_driver_set_opt_callback</span><span class="p">(</span><span class="n">oni_driver_ctx</span><span class="w"> </span><span class="n">driver_ctx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">oni_option</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">option_len</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="c1">//Example of a device reacting to changes in block read size</span>
@@ -668,9 +668,9 @@ API functions <a class="reference internal" href="oni.html#c.oni_set_driver_opt"
 This is done using the <a class="reference internal" href="onidefs.html#oni-driver-info-t"><span class="std std-ref">Driver Information</span></a> structure, which contains
 information following the <a class="reference external" href="https://semver.org/">Semantic Versioning</a>
 specification. This structure should be a constant, and a pointer to it should
-be returned by <a class="reference internal" href="oni.html#c.oni_get_driver_info" title="oni_get_driver_info"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_get_driver_info()</span></code></a></p>
+be returned by <a class="reference internal" href="oni.html#c.oni_get_driver_info" title="oni_get_driver_info"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_get_driver_info()</span></code></a>.</p>
 <div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Example implemention</span><a class="headerlink" href="#id5" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">Example implementation</span><a class="headerlink" href="#id5" title="Permalink to this code">#</a></div>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">oni_driver_info_t</span><span class="w"> </span><span class="n">oni_driver_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;simple&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="p">.</span><span class="n">major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>

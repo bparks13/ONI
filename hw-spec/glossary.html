@@ -402,7 +402,7 @@ these may each use a different <a class="reference internal" href="#term-Driver-
 interface.</p>
 </dd>
 <dt id="term-API">API<a class="headerlink" href="#term-API" title="Permalink to this term">#</a></dt><dd><p>ONI application programming interface that can be used to develop software
-to aquire from and control ONI-compliant hardware.</p>
+to acquire from and control ONI-compliant hardware.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../api/index.html#oni-api"><span class="std std-ref">ONI API Documentation</span></a></p>
@@ -413,7 +413,7 @@ single <a class="reference internal" href="#term-Host-Interconnect"><span class=
 ONI-compliant <a class="reference internal" href="#term-API"><span class="xref std std-term">API</span></a>. Multiple <a class="reference internal" href="#term-Controller"><span class="xref std std-term">controllers</span></a> can
 coexist in a single <a class="reference internal" href="#term-Host-Computer"><span class="xref std std-term">Host Computer</span></a> and need not use the same
 <a class="reference internal" href="#term-Driver-Translator"><span class="xref std std-term">Driver Translator</span></a>. Controllers communicate via <a class="reference internal" href="#term-API"><span class="xref std std-term">API</span></a> calls
-that manipulate an <a class="reference internal" href="#term-Acquisition-Context"><span class="xref std std-term">Acquisition Context</span></a> and a <a class="reference internal" href="#term-Device-Table"><span class="xref std std-term">Device Table</span></a> ,
+that manipulate an <a class="reference internal" href="#term-Acquisition-Context"><span class="xref std std-term">Acquisition Context</span></a> and a <a class="reference internal" href="#term-Device-Table"><span class="xref std std-term">Device Table</span></a>,
 which affect controller state using the driver translator. <a class="reference internal" href="#term-Hub"><span class="xref std std-term">Hubs</span></a> are connected to the controller where data to/from their devices is
 packed and transmitted to/from the host computer. The controller contains a
 main clock which provides a common timestamp to all incoming data, and that
@@ -424,7 +424,7 @@ can be synchronized with other controllers.</p>
 </div>
 </dd>
 <dt id="term-Device">Device<a class="headerlink" href="#term-Device" title="Permalink to this term">#</a></dt><dd><p>A configurable piece of hardware with its own register address space
-(e.g. an integrated circuit) or a digital “core” that emulates this.
+(e.g., an integrated circuit) or a digital “core” that emulates this.
 Devices may or may not produce and/or accept <a class="reference internal" href="comm_channels.html#term-Stream-Channel"><span class="xref std std-term">streaming data</span></a> , but that must at least implement a minimal <a class="reference internal" href="comm_channels.html#term-Register-Channel"><span class="xref std std-term">register
 programming channel</span></a>. They must be documented, using a
 <a class="reference internal" href="#term-Device-Datasheet"><span class="xref std std-term">Device Datasheet</span></a>. Devices are the endpoints for most communication
@@ -452,8 +452,8 @@ functionality is exposed via raw register access.</p>
 </dd>
 <dt id="term-Device-Table">Device Table<a class="headerlink" href="#term-Device-Table" title="Permalink to this term">#</a></dt><dd><p>A collection of <a class="reference internal" href="#term-Device-Address"><span class="xref std std-term">device addresses</span></a> and corresponding
 metadata for all <a class="reference internal" href="devices.html#device"><span class="std std-ref">devices</span></a> governed by a <a class="reference internal" href="#term-Controller"><span class="xref std std-term">controller</span></a>. The device table contains all meta-information required to
-for proper interaction with each device. E.g.  packet read-size, packet
-write-size, burst read cycles, etc.</p>
+for proper interaction with each device (e.g., packet read-size, packet
+write-size, burst read cycles, etc.).</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="dev_table.html#dev-table"><span class="std std-ref">Device Table Specification</span></a></p>
@@ -471,7 +471,7 @@ hardware-specific system calls that affect the <a class="reference internal" hre
 <a class="reference internal" href="#term-Controller"><span class="xref std std-term">controllers</span></a> and running software implemented using the
 <a class="reference internal" href="#term-API"><span class="xref std std-term">API</span></a>.</p>
 </dd>
-<dt id="term-Host-Interconnect">Host Interconnect<a class="headerlink" href="#term-Host-Interconnect" title="Permalink to this term">#</a></dt><dd><p>A hardware abstraction layer consisting of a physical bus (e.g. PCIe, USB,
+<dt id="term-Host-Interconnect">Host Interconnect<a class="headerlink" href="#term-Host-Interconnect" title="Permalink to this term">#</a></dt><dd><p>A hardware abstraction layer consisting of a physical bus (e.g., PCIe, USB,
 or Ethernet) along with a <a class="reference internal" href="#term-Driver-Translator"><span class="xref std std-term">Driver Translator</span></a> that the
 <a class="reference internal" href="#term-Controller"><span class="xref std std-term">Controller</span></a> uses to communicate with the <a class="reference internal" href="#term-Host-Computer"><span class="xref std std-term">Host Computer</span></a>.</p>
 </dd>
@@ -491,7 +491,7 @@ hardware from the <a class="reference internal" href="#term-Controller"><span cl
 </dd>
 <dt id="term-Port">Port<a class="headerlink" href="#term-Port" title="Permalink to this term">#</a></dt><dd><p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Bus_(computing)">physical bus</a> between
 a <a class="reference internal" href="#term-Hub"><span class="xref std std-term">Hub</span></a> and a <a class="reference internal" href="#term-Controller"><span class="xref std std-term">Controller</span></a>. This could be an external link to
-a <a class="reference internal" href="#term-Hub"><span class="xref std std-term">Hub</span></a> that is separated from the <a class="reference internal" href="#term-Controller"><span class="xref std std-term">Controller</span></a> (e.g. a wire or
+a <a class="reference internal" href="#term-Hub"><span class="xref std std-term">Hub</span></a> that is separated from the <a class="reference internal" href="#term-Controller"><span class="xref std std-term">Controller</span></a> (e.g., a wire or
 wireless communication channel) or it could be a bus inside of the
 <a class="reference internal" href="#term-Controller"><span class="xref std std-term">Controller</span></a> in the case of a local hub.</p>
 </dd>

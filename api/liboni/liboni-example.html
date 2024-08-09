@@ -444,11 +444,11 @@ manage the hardware at the specified host index using the specified driver.</p>
 <p class="admonition-title">Note</p>
 <p>Specifying a host index of -1 will open the default slot and is
 useful in cases where there is only one piece of acquisition hardware in the
-host computer (e.g. a single PCIe card).</p>
+host computer (e.g., a single PCIe card).</p>
 </div>
-<p>When multiple pieces of host hardware exist on a single host (e.g. multiple
+<p>When multiple pieces of host hardware exist on a single host (e.g., multiple
 PCIe cards), a new context must be created and initialized to manage each
-one. In some cases (e.g. multiple PCIe cards in a single computer), these
+one. In some cases (e.g., multiple PCIe cards in a single computer), these
 contexts can be synchronized so that each host receiver board shares a common
 hardware clock and acquisition trigger (see <a class="reference internal" href="#sync-ctx"><span class="std std-ref">Synchronizing Contexts</span></a> for an example).
 This is not always possible. For instance, multiple USB hosts cannot be
@@ -458,7 +458,7 @@ synchronized.</p>
 <p><a class="reference internal" href="oni.html#c.oni_init_ctx" title="oni_init_ctx"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_init_ctx()</span></code></a> cannot be called on a previously
 initialized context.  Doing so will return an error.</p>
 </div>
-<p>If the device configuration is changed following context initialization (e.g. a
+<p>If the device configuration is changed following context initialization (e.g., a
 headstage is plugged in or turned on), a context reset must be issued to
 instruct the initialized context to re-evaluate its device table. This can be
 done via</p>
@@ -508,7 +508,7 @@ defined as:</p>
 <p><code class="docutils literal notranslate"><span class="pre">device_t.idx</span></code> is the fully qualified address (hub.index) of a
 device within the acquisition hierarchy. Do not expect these values to increase
 linearly with the position in array returned when querying the device table as
-some bit ranges are used to specifiy the hub address.</p>
+some bit ranges are used to specify the hub address.</p>
 </div>
 </section>
 <section id="reading-and-writing-device-registers">
@@ -517,9 +517,9 @@ some bit ranges are used to specifiy the hub address.</p>
 acquisition. As described in the ONI specification, a device is a leaf element
 in the device table with <em>at least</em> the following properties:</p>
 <ol class="arabic simple">
-<li><p>Its own register address space</p></li>
-<li><p>Register access through a standardized register programming interface</p></li>
-<li><p>A datasheet that describes access to these registers</p></li>
+<li><p>Its own register address space.</p></li>
+<li><p>Register access through a standardized register programming interface.</p></li>
+<li><p>A datasheet that describes access to these registers.</p></li>
 </ol>
 <p>Device registers can be read as follows:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">oni_reg_val_t</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -530,7 +530,7 @@ in the device table with <em>at least</em> the following properties:</p>
 in the device table, <code class="docutils literal notranslate"><span class="pre">addr</span></code> is the register address as specified within the
 ONI device datasheet. Because this is a register read, <code class="docutils literal notranslate"><span class="pre">val</span></code> is just a
 pointer to a register to be filled during the read. This function will return
-an error if the context is in an inappropriate state (e.g. not initialized),
+an error if the context is in an inappropriate state (e.g., not initialized),
 the specified device is not in the device table, or the register is write-only.
 Registers can be written as follows:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">oni_reg_val_t</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
@@ -604,7 +604,7 @@ context option:</p>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Following the start of data acqusition, hardware memory
+<p>Following the start of data acquisition, hardware memory
 resources are used to queue incoming device data. To prevent buffer overflows,
 the user must issue calls to <code class="docutils literal notranslate"><span class="pre">oni_read_frame</span></code> fast enough to keep up with
 data production.</p>
@@ -658,7 +658,7 @@ calls to <code class="docutils literal notranslate"><span class="pre">oni_read_f
 <p>In the preceding example, <code class="docutils literal notranslate"><span class="pre">frame</span></code> is initialized to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> because a call
 to <code class="docutils literal notranslate"><span class="pre">oni_read_frame</span></code> will assign its contents to an existing, pre-allocated
 memory block (see <a class="reference internal" href="#liboni-example-set-buffers"><span class="std std-ref">Setting Read and Write Buffer Sizes</span></a>). <code class="docutils literal notranslate"><span class="pre">oni_read_frame</span></code> will
-return an error if the acquisition context is in an inappropriate state (e.g.
+return an error if the acquisition context is in an inappropriate state (e.g.,
 not started). If the hardware is not producing frames, it will wait
 indefinitely.</p>
 <div class="admonition attention">
@@ -712,14 +712,14 @@ the hardware and device driver permit.</p>
 <p>Attempting to write multi-packet frames that are larger than
 <a class="reference internal" href="onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_BLOCKWRITESIZE" title="ONI_OPT_BLOCKWRITESIZE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_BLOCKWRITESIZE</span></code></a> will result in a error.</p>
 </div>
-<p>After a frame has been created, it can then be written to to hardware using
+<p>After a frame has been created, it can then be written to hardware using
 <code class="docutils literal notranslate"><span class="pre">oni_write_frame</span></code>. Just like frames produced by <code class="docutils literal notranslate"><span class="pre">oni_read_frame</span></code>, frames
 generated by <code class="docutils literal notranslate"><span class="pre">oni_create_frame</span></code> must be disposed of using
 <code class="docutils literal notranslate"><span class="pre">oni_destroy_frame</span></code> when the are no longer needed.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Frames created using <code class="docutils literal notranslate"><span class="pre">oni_create_frame</span></code> can be reused by re-writing
-their data field following a frame write</p>
+their data field following a frame write.</p>
 </div>
 <p>The following example shows a single frame being used for two writes with a
 change in the data field in between writes:</p>

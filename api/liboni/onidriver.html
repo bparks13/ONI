@@ -418,7 +418,7 @@ document.write(`
 <dl class="c enum">
 <dt class="sig sig-object c" id="c.oni_read_stream_t">
 <span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_read_stream_t</span></span></span><a class="headerlink" href="#c.oni_read_stream_t" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Represent the available data streams from the device to the host</p>
+<dd><p>Represent the available data streams from the device to the host.</p>
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.oni_read_stream_t.ONI_READ_STREAM_DATA">
 <span class="sig-name descname"><span class="n"><span class="pre">ONI_READ_STREAM_DATA</span></span></span><a class="headerlink" href="#c.oni_read_stream_t.ONI_READ_STREAM_DATA" title="Permalink to this definition">#</a><br /></dt>
@@ -438,7 +438,7 @@ Low-speed signaling stream</p>
 <dl class="c enum">
 <dt class="sig sig-object c" id="c.oni_write_stream_t">
 <span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_write_stream_t</span></span></span><a class="headerlink" href="#c.oni_write_stream_t" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Represent the available data streams from the host to the device</p>
+<dd><p>Represent the available data streams from the host to the device.</p>
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.oni_write_stream_t.ONI_WRITE_STREAM_DATA">
 <span class="sig-name descname"><span class="n"><span class="pre">ONI_WRITE_STREAM_DATA</span></span></span><a class="headerlink" href="#c.oni_write_stream_t.ONI_WRITE_STREAM_DATA" title="Permalink to this definition">#</a><br /></dt>
@@ -462,7 +462,7 @@ implementation.</p>
 <section id="functions">
 <span id="onidriver-h-functions"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h2>
 <p>All driver translators must implement these functions. They are called
-internally by the public interface decribed in <a class="reference internal" href="oni.html#oni-h"><span class="std std-ref">oni.h</span></a> and perform direct
+internally by the public interface described in <a class="reference internal" href="oni.html#oni-h"><span class="std std-ref">oni.h</span></a> and perform direct
 hardware access as needed.</p>
 <dl>
 <dt class="sig sig-object c">
@@ -507,7 +507,7 @@ hardware access as needed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>driver_ctx</strong> – Handle to the open context to destroy</p></li>
+<li><p><strong>driver_ctx</strong> – Handle to the open context to destroy.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -523,9 +523,9 @@ hardware access as needed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>driver_ctx</strong> – Handle to the context to be initialized</p></li>
+<li><p><strong>driver_ctx</strong> – Handle to the context to be initialized.</p></li>
 <li><p><strong>host_idx</strong> – Index of the hardware device to open. The enumeration depends
-on the specific hardware. <code class="docutils literal notranslate"><span class="pre">-1</span></code> always means open the first available device</p></li>
+on the specific hardware. <code class="docutils literal notranslate"><span class="pre">-1</span></code> always means open the first available device.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -541,9 +541,9 @@ on the specific hardware. <code class="docutils literal notranslate"><span class
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state</p></li>
-<li><p><strong>stream</strong> – The input stream to perform the read operation on</p></li>
-<li><p><strong>data</strong> – Pointer to the data buffer. It must be big enough to fit the requested amount of data</p></li>
+<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state.</p></li>
+<li><p><strong>stream</strong> – The input stream to perform the read operation on.</p></li>
+<li><p><strong>data</strong> – Pointer to the data buffer. It must be big enough to fit the requested amount of data.</p></li>
 <li><p><strong>size</strong> – Size, in bytes, of the data to read. Must read this amount from the device.</p></li>
 </ul>
 </dd>
@@ -561,9 +561,9 @@ of retrieved bytes were different from <code class="docutils literal notranslate
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state</p></li>
-<li><p><strong>stream</strong> – The output stream to perform the write operation on</p></li>
-<li><p><strong>data</strong> – Pointer to the data buffer. It must contain the amount of data requested to write</p></li>
+<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state.</p></li>
+<li><p><strong>stream</strong> – The output stream to perform the write operation on.</p></li>
+<li><p><strong>data</strong> – Pointer to the data buffer. It must contain the amount of data requested to write.</p></li>
 <li><p><strong>size</strong> – Size, in bytes, of the data to write.</p></li>
 </ul>
 </dd>
@@ -580,9 +580,9 @@ of retrieved bytes were different from <code class="docutils literal notranslate
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state</p></li>
-<li><p><strong>config</strong> – Register to read from</p></li>
-<li><p><strong>value</strong> – Variable to store the register value after it is read</p></li>
+<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state.</p></li>
+<li><p><strong>config</strong> – Register to read from.</p></li>
+<li><p><strong>value</strong> – Variable to store the register value after it is read.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -598,9 +598,9 @@ of retrieved bytes were different from <code class="docutils literal notranslate
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state</p></li>
-<li><p><strong>config</strong> – Register to write to</p></li>
-<li><p><strong>value</strong> – Value to be written</p></li>
+<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state.</p></li>
+<li><p><strong>config</strong> – Register to write to.</p></li>
+<li><p><strong>value</strong> – Value to be written.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -618,7 +618,7 @@ not used, it is safe to do nothing and return <a class="reference internal" href
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state</p></li>
+<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state.</p></li>
 <li><p><strong>oni_option</strong> – Option set, as specified in the originating <a class="reference internal" href="oni.html#c.oni_set_opt" title="oni_set_opt"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_set_opt()</span></code></a> call.</p></li>
 <li><p><strong>value</strong> – Option value, as specified in the originating <a class="reference internal" href="oni.html#c.oni_set_opt" title="oni_set_opt"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_set_opt()</span></code></a> call.</p></li>
 <li><p><strong>option_len</strong> – Value length, as specified in the originating <a class="reference internal" href="oni.html#c.oni_set_opt" title="oni_set_opt"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_set_opt()</span></code></a> call.</p></li>
@@ -638,9 +638,9 @@ If no such options exist in a specific driver this can be an empty function retu
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state</p></li>
-<li><p><strong>driver_option</strong> – Option index to set, specific to the device driver translator</p></li>
-<li><p><strong>value</strong> – buffer containing data to be written to <code class="docutils literal notranslate"><span class="pre">driver_option</span></code></p></li>
+<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state.</p></li>
+<li><p><strong>driver_option</strong> – Option index to set, specific to the device driver translator.</p></li>
+<li><p><strong>value</strong> – buffer containing data to be written to <code class="docutils literal notranslate"><span class="pre">driver_option</span></code>.</p></li>
 <li><p><strong>option_len</strong> – Size of <code class="docutils literal notranslate"><span class="pre">value</span></code> buffer (including terminating null
 character, if applicable) in bytes.</p></li>
 </ul>
@@ -659,9 +659,9 @@ If no such options exist in a specific driver this can be an empty function retu
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state</p></li>
-<li><p><strong>driver_option</strong> – Option index to read, specific to the device driver translator</p></li>
-<li><p><strong>value</strong> – buffer to store value of <code class="docutils literal notranslate"><span class="pre">driver_option</span></code> after it is read</p></li>
+<li><p><strong>driver_ctx</strong> – Context handling the device driver translator state.</p></li>
+<li><p><strong>driver_option</strong> – Option index to read, specific to the device driver translator.</p></li>
+<li><p><strong>value</strong> – buffer to store value of <code class="docutils literal notranslate"><span class="pre">driver_option</span></code> after it is read.</p></li>
 <li><p><strong>option_len</strong> – Pointer to the size of <code class="docutils literal notranslate"><span class="pre">value</span></code> buffer (including terminating
 null character, if applicable) in bytes.</p></li>
 </ul>
@@ -675,10 +675,10 @@ null character, if applicable) in bytes.</p></li>
 <dl class="c function">
 <dt class="sig sig-object c" id="c.oni_driver_info">
 <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="onidefs.html#c.oni_driver_info_t" title="oni_driver_info_t"><span class="n"><span class="pre">oni_driver_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">oni_driver_info</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.oni_driver_info" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Provides static information about the driver translator</p>
+<dd><p>Provides static information about the driver translator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A <a class="reference internal" href="onidefs.html#oni-driver-info-t"><span class="std std-ref">Driver Information</span></a> structure containing information about the driver translator</p>
+<dd class="field-odd"><p>A <a class="reference internal" href="onidefs.html#oni-driver-info-t"><span class="std std-ref">Driver Information</span></a> structure containing information about the driver translator.</p>
 </dd>
 </dl>
 </dd></dl>

@@ -409,7 +409,7 @@ blocking read or write of a set number of bytes, while a register transaction
 is defined as a single register read or write cycle to an individual address.</p>
 <p>The required characteristics of these channels are described in the following
 sections. A complete understanding of their use during software development
-requires an undersanding of the the <a class="reference internal" href="../api/index.html#oni-api"><span class="std std-ref">ONI API Documentation</span></a>.</p>
+requires an understanding of the <a class="reference internal" href="../api/index.html#oni-api"><span class="std std-ref">ONI API Documentation</span></a>.</p>
 <section id="read-channel">
 <span id="data-rd-chan"></span><h2>Read Channel<a class="headerlink" href="#read-channel" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
@@ -638,7 +638,7 @@ map</span></a> of the device located at <code class="docutils literal notranslat
 written to or read from.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">Value</span></code>: Value to be written to or read from and that corresponds
 to the register <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">Address</span></code> of device located at
-<code class="docutils literal notranslate"><span class="pre">Device</span>&#160;&#160; <span class="pre">Address</span></code>.</p></li>
+<code class="docutils literal notranslate"><span class="pre">Device</span> <span class="pre">Address</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Read/Write</span></code>: A flag indicating if a read or write should be performed. 0
 indicates read operation. A value &gt; 0 indicates write operation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Trigger</span></code>: Set &gt; 0 to trigger either register read or write operation
@@ -672,7 +672,7 @@ cannot be issued.</p></li>
 </ul>
 </li>
 <li><p>The target device is selected by writing its address, as featured on the
-device map, into <code class="docutils literal notranslate"><span class="pre">Device</span> <span class="pre">Address</span></code> on the controller</p></li>
+device map, into <code class="docutils literal notranslate"><span class="pre">Device</span> <span class="pre">Address</span></code> on the controller.</p></li>
 <li><p>The desired register address within the device register map is written into
 <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">Address</span></code> on the controller.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Read/Write</span></code> register on the controller is set to 0x00.</p></li>
@@ -695,7 +695,7 @@ the <code class="docutils literal notranslate"><span class="pre">Register</span>
 contains invalid data.</p></li>
 </ul>
 </li>
-<li><p>If operation was successful, the <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">Value</span></code> can be read</p></li>
+<li><p>If operation was successful, the <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">Value</span></code> can be read.</p></li>
 </ol>
 </section>
 <section id="register-write-sequence">
@@ -728,8 +728,8 @@ operation was successful, <code class="docutils literal notranslate"><span class
 <li><p>The signal stream must be pumped until either <code class="docutils literal notranslate"><span class="pre">CONFIGWACK</span></code> or
 <code class="docutils literal notranslate"><span class="pre">CONFIGWNACK</span></code> is received indicating that the controller has either:</p>
 <ul class="simple">
-<li><p>Successfully completed writing the specified device register</p></li>
-<li><p>Failed to write the register</p></li>
+<li><p>Successfully completed writing the specified device register.</p></li>
+<li><p>Failed to write the register.</p></li>
 </ul>
 </li>
 </ol>
@@ -759,7 +759,7 @@ that timestamps data from all the devices. The <code class="docutils literal not
 read <a class="reference internal" href="#frame"><span class="std std-ref">frame</span></a> header is incremented at this frequency.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Reset</span> <span class="pre">Acquisition</span> <span class="pre">Counter</span></code>: This register is used to reset the counter
 generating the <code class="docutils literal notranslate"><span class="pre">Common_Timestamp</span></code> used in the <a class="reference internal" href="#frame"><span class="std std-ref">device frames</span></a>.
-A value if 1 will reset the counter to 0 without affecting the <code class="docutils literal notranslate"><span class="pre">Running</span></code>
+A value of 1 will reset the counter to 0 without affecting the <code class="docutils literal notranslate"><span class="pre">Running</span></code>
 state. A value of 2 will reset the counter and, at the same time, set
 <code class="docutils literal notranslate"><span class="pre">Running</span></code> to 1, starting data production.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Hardware</span> <span class="pre">Address</span></code>: This is used for systems that allow multiple

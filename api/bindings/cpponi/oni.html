@@ -424,19 +424,19 @@ document.write(`
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.CPPONI_VERSION_MAJOR">
 <span class="sig-name descname"><span class="n"><span class="pre">CPPONI_VERSION_MAJOR</span></span></span><a class="headerlink" href="#c.CPPONI_VERSION_MAJOR" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>MAJOR version for incompatible API changes</p>
+<dd><p>MAJOR version for incompatible API changes.</p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.CPPONI_VERSION_MINOR">
 <span class="sig-name descname"><span class="n"><span class="pre">CPPONI_VERSION_MINOR</span></span></span><a class="headerlink" href="#c.CPPONI_VERSION_MINOR" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>MINOR version for added functionality that is backwards compatible</p>
+<dd><p>MINOR version for added functionality that is backwards compatible.</p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.CPPONI_VERSION_PATCH">
 <span class="sig-name descname"><span class="n"><span class="pre">CPPONI_VERSION_PATCH</span></span></span><a class="headerlink" href="#c.CPPONI_VERSION_PATCH" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>PATCH version for backwards compatible bug fixes</p>
+<dd><p>PATCH version for backwards compatible bug fixes.</p>
 </dd></dl>
 
 <dl class="c macro">
@@ -453,7 +453,7 @@ document.write(`
 <dt class="sig sig-object c" id="c.CPPONI_VERSION">
 <span class="sig-name descname"><span class="n"><span class="pre">CPPONI_VERSION</span></span></span><a class="headerlink" href="#c.CPPONI_VERSION" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Compile-time API version. Defined as</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CPPONI_MAKE_VERSION</span><span class="p">(</span><span class="n">CPPONI_VERSION_MAJOR</span><span class="w"> </span><span class="n">CPPONI_VERSION_MINOR</span><span class="p">,</span><span class="w"> </span><span class="n">CPPONI_VERSION_PATCH</span><span class="p">).</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CPPONI_MAKE_VERSION</span><span class="p">(</span><span class="n">CPPONI_VERSION_MAJOR</span><span class="w"> </span><span class="n">CPPONI_VERSION_MINOR</span><span class="p">,</span><span class="w"> </span><span class="n">CPPONI_VERSION_PATCH</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -483,11 +483,11 @@ from cpponi in lieu of C return codes.</p>
 <span id="_CPPv3N3oni3oni7error_t7error_tEi"></span><span id="_CPPv2N3oni3oni7error_t7error_tEi"></span><span id="oni::oni::error_t::error_t__i"></span><span class="sig-name descname"><span class="n"><span class="pre">error_t</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">errnum</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3oni3oni7error_t7error_tEi" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Constructor. Not generally needed for cpponi use since
 <a class="reference internal" href="#_CPPv4N3oni3oni7error_tE" title="oni::oni::error_t"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">oni::error_t</span></code></a> is constructed and thrown from within cpponi and
-only need to be handled by the host application.</p>
+only needs to be handled by the host application.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>errnum</strong> – liboni error code integer, generally resulting from a non-zero
-return value of an Underlying liboni function.</p>
+return value of an underlying liboni function.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -531,13 +531,13 @@ device index.</p>
 <dd><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/raii">RAII</a>-capable wrapper
 for <a class="reference internal" href="../../liboni/oni.html#c.oni_frame_t" title="oni_frame_t"><code class="xref c c-struct docutils literal notranslate"><span class="pre">oni_frame_t</span></code></a>. User programs generally should not call the
 frame_t constructor directly but deal with frames created by a
-<a class="reference internal" href="#_CPPv4N3oni3oni9context_tE" title="oni::oni::context_t"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">oni::context_t</span></code></a></p>
+<a class="reference internal" href="#_CPPv4N3oni3oni9context_tE" title="oni::oni::context_t"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">oni::context_t</span></code></a>.</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3oni3oni7frame_t4timeEv">
 <span id="_CPPv3NK3oni3oni7frame_t4timeEv"></span><span id="_CPPv2NK3oni3oni7frame_t4timeEv"></span><span id="oni::oni::frame_t::timeC"></span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">time</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3oni3oni7frame_t4timeEv" title="Permalink to this definition">#</a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Underlying <a class="reference internal" href="../../liboni/oni.html#c.oni_frame_t.time" title="oni_frame_t.time"><code class="xref c c-struct docutils literal notranslate"><span class="pre">oni_frame_t.time</span></code></a></p>
+<dd class="field-odd"><p>Underlying <a class="reference internal" href="../../liboni/oni.html#c.oni_frame_t.time" title="oni_frame_t.time"><code class="xref c c-struct docutils literal notranslate"><span class="pre">oni_frame_t.time</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -547,7 +547,7 @@ frame_t constructor directly but deal with frames created by a
 <span id="_CPPv3NK3oni3oni7frame_t12device_indexEv"></span><span id="_CPPv2NK3oni3oni7frame_t12device_indexEv"></span><span id="oni::oni::frame_t::device_indexC"></span><span class="n"><span class="pre">oni_dev_idx_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">device_index</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3oni3oni7frame_t12device_indexEv" title="Permalink to this definition">#</a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Underlying <a class="reference internal" href="../../liboni/oni.html#c.oni_frame_t.dev_idx" title="oni_frame_t.dev_idx"><code class="xref c c-struct docutils literal notranslate"><span class="pre">oni_frame_t.dev_idx</span></code></a></p>
+<dd class="field-odd"><p>Underlying <a class="reference internal" href="../../liboni/oni.html#c.oni_frame_t.dev_idx" title="oni_frame_t.dev_idx"><code class="xref c c-struct docutils literal notranslate"><span class="pre">oni_frame_t.dev_idx</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -567,7 +567,7 @@ frame_t constructor directly but deal with frames created by a
 <p class="admonition-title">Note</p>
 <p><a class="reference external" href="https://en.cppreference.com/w/cpp/container/span">std::span</a> Automatically
 made available when compiled with stdlib &gt;= C++20. Otherwise, this
-function reverts to returning a <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a></p>
+function reverts to returning a <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a>.</p>
 </div>
 </dd></dl>
 
@@ -598,7 +598,7 @@ dynamic library search path, the function will error.</p></li>
 <li><p><strong>host_idx</strong> – The index of the hardware we are going to
 manage using the initialized context and driver. A value of -1 will
 attempt to open the default host index and is useful if there is only a
-single ONIX host managed by driver selected in <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">oni_create_ctx()</span></code></p></li>
+single ONIX host managed by driver selected in <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">oni_create_ctx()</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
@@ -792,16 +792,16 @@ device to write data to.</p></li>
 <p><code class="docutils literal notranslate"><span class="pre">data.size()</span></code> must be</p>
 <ol class="arabic simple">
 <li><p>An integer multiple of the selected <code class="docutils literal notranslate"><span class="pre">dev_idx</span></code>’s write size as
-indicated within the device table</p></li>
+indicated within the device table.</p></li>
 <li><p>Smaller than the internal write block memory size (see
-<a class="reference internal" href="../../liboni/onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_BLOCKWRITESIZE" title="ONI_OPT_BLOCKWRITESIZE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_BLOCKWRITESIZE</span></code></a> and <a class="reference internal" href="../../liboni/liboni-example.html#liboni-example-set-buffers"><span class="std std-ref">Setting Read and Write Buffer Sizes</span></a>)</p></li>
+<a class="reference internal" href="../../liboni/onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_BLOCKWRITESIZE" title="ONI_OPT_BLOCKWRITESIZE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_BLOCKWRITESIZE</span></code></a> and <a class="reference internal" href="../../liboni/liboni-example.html#liboni-example-set-buffers"><span class="std std-ref">Setting Read and Write Buffer Sizes</span></a>).</p></li>
 </ol>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference external" href="https://en.cppreference.com/w/cpp/container/span">std::span</a> is
 automatically made available when compiled with stdlib &gt;= C++20.
-Otherwise, this function reverts to returning a <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a></p>
+Otherwise, this function reverts to returning a <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a>.</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>

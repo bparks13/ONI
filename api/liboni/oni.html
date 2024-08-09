@@ -464,13 +464,13 @@ opaque handle to a structure which manages hardware state.</p>
 <p class="admonition-title">Attention</p>
 <p>Context details are hidden in the implementation file
 (<code class="docutils literal notranslate"><span class="pre">oni.c</span></code>). Direct manipulation of <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> data members is never
-nessesary or correct.</p>
+necessary or correct.</p>
 </div>
 <p>Each <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> instance manages the device driver, device table, read
 and write buffers, acquisition run state, etc. Following a hardware reset,
 which is triggered either by a call to <a class="reference internal" href="#c.oni_init_ctx" title="oni_init_ctx"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_init_ctx()</span></code></a> or
 <a class="reference internal" href="#c.oni_set_opt" title="oni_set_opt"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_set_opt()</span></code></a> using the <a class="reference internal" href="onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_RESET" title="ONI_OPT_RESET"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_RESET</span></code></a> context option, the
-context run state is set to <code class="docutils literal notranslate"><span class="pre">UNINTIALIZED</span></code> and the device table is pushed
+context run state is set to <code class="docutils literal notranslate"><span class="pre">UNINITIALIZED</span></code> and the device table is pushed
 onto the host signal stream by the host hardware as <a class="reference external" href="https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing">COBS</a>-encoded
 packets. On the signal stream, the device table is organized as follows,</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>... | DEVICEMAPACK, uint32_t num_devices | DEVICEINST, oni_device_t dev_0
@@ -499,13 +499,13 @@ uy transitioning the context run state to <code class="docutils literal notransl
 <dd><p>Fully qualified <strong>RSV.RSV.HUB.IDX</strong> device table index.</p>
 <dl class="field-list simple">
 <dt class="field-odd">RSV<span class="colon">:</span></dt>
-<dd class="field-odd"><p>8-bit unsigned integer (reserved)</p>
+<dd class="field-odd"><p>8-bit unsigned integer (reserved).</p>
 </dd>
 <dt class="field-even">HUB<span class="colon">:</span></dt>
-<dd class="field-even"><p>8-bit unsigned integer indicating the hub index</p>
+<dd class="field-even"><p>8-bit unsigned integer indicating the hub index.</p>
 </dd>
 <dt class="field-odd">IDX<span class="colon">:</span></dt>
-<dd class="field-odd"><p>8-bit unsigned integer indicating the device index</p>
+<dd class="field-odd"><p>8-bit unsigned integer indicating the device index.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -513,19 +513,19 @@ uy transitioning the context run state to <code class="docutils literal notransl
 <dl class="c member">
 <dt class="sig sig-object c" id="c.oni_device_t.id">
 <a class="reference internal" href="onidefs.html#c.oni_dev_id_t" title="oni_dev_id_t"><span class="n"><span class="pre">oni_dev_id_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">id</span></span></span><a class="headerlink" href="#c.oni_device_t.id" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Device ID number (see <a class="reference internal" href="onix.html#onix-h"><span class="std std-ref">onix.h</span></a> for ONIX-specific definitions)</p>
+<dd><p>Device ID number (see <a class="reference internal" href="onix.html#onix-h"><span class="std std-ref">onix.h</span></a> for ONIX-specific definitions).</p>
 </dd></dl>
 
 <dl class="c member">
 <dt class="sig sig-object c" id="c.oni_device_t.read_size">
 <a class="reference internal" href="onidefs.html#c.oni_size_t" title="oni_size_t"><span class="n"><span class="pre">oni_size_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read_size</span></span></span><a class="headerlink" href="#c.oni_device_t.read_size" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Device data read size per frame in bytes</p>
+<dd><p>Device data read size per frame in bytes.</p>
 </dd></dl>
 
 <dl class="c member">
 <dt class="sig sig-object c" id="c.oni_device_t.write_size">
 <a class="reference internal" href="onidefs.html#c.oni_size_t" title="oni_size_t"><span class="n"><span class="pre">oni_size_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write_size</span></span></span><a class="headerlink" href="#c.oni_device_t.write_size" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Device data write size per frame in bytes</p>
+<dd><p>Device data write size per frame in bytes.</p>
 </dd></dl>
 
 <p>An ONI-compliant device implementation. An <a class="reference internal" href="#c.oni_device_t" title="oni_device_t"><code class="xref c c-struct docutils literal notranslate"><span class="pre">oni_device_t</span></code></a> describes
@@ -534,7 +534,7 @@ Examples of individual devices might include ephys chips, IMUs, optical
 stimulators, camera sensors, etc.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Look at device index defintions in <a class="reference internal" href="onix.html#onix-h"><span class="std std-ref">onix.h</span></a> to see available
+<p>Look at device index definitions in <a class="reference internal" href="onix.html#onix-h"><span class="std std-ref">onix.h</span></a> to see available
 ONIX-specific device definitions and enum ranges that will not interfere with
 ONIX for custom or closed-source projects.</p>
 </div>
@@ -552,19 +552,19 @@ a call to <a class="reference internal" href="#c.oni_init_ctx" title="oni_init_c
 <dd><dl class="c member">
 <dt class="sig sig-object c" id="c.oni_frame_t.time">
 <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="onidefs.html#c.oni_fifo_time_t" title="oni_fifo_time_t"><span class="n"><span class="pre">oni_fifo_time_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">time</span></span></span><a class="headerlink" href="#c.oni_frame_t.time" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Frame time (<a class="reference internal" href="onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_ACQCLKHZ" title="ONI_OPT_ACQCLKHZ"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_ACQCLKHZ</span></code></a> host clock counter)</p>
+<dd><p>Frame time (<a class="reference internal" href="onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_ACQCLKHZ" title="ONI_OPT_ACQCLKHZ"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_ACQCLKHZ</span></code></a> host clock counter).</p>
 </dd></dl>
 
 <dl class="c member">
 <dt class="sig sig-object c" id="c.oni_frame_t.dev_idx">
 <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="onidefs.html#c.oni_fifo_dat_t" title="oni_fifo_dat_t"><span class="n"><span class="pre">oni_fifo_dat_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dev_idx</span></span></span><a class="headerlink" href="#c.oni_frame_t.dev_idx" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Device index that produced or accepts the frame</p>
+<dd><p>Device index that produced or accepts the frame.</p>
 </dd></dl>
 
 <dl class="c member">
 <dt class="sig sig-object c" id="c.oni_frame_t.data_sz">
 <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="onidefs.html#c.oni_fifo_dat_t" title="oni_fifo_dat_t"><span class="n"><span class="pre">oni_fifo_dat_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">data_sz</span></span></span><a class="headerlink" href="#c.oni_frame_t.data_sz" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Size of data in bytes</p>
+<dd><p>Size of data in bytes.</p>
 </dd></dl>
 
 <dl class="c member">
@@ -641,7 +641,7 @@ to a structure that manages device drivers, the device table, data
 streaming, memory management, etc. On success the selected driver is loaded
 and an <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> is allocated and created, and its handle is passed
 to the user.  Many API functions take a <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> as a first
-agrument.</p>
+argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -658,15 +658,15 @@ successful. Otherwise it shall return <code class="docutils literal notranslate"
 <code class="docutils literal notranslate"><span class="pre">EAGAIN</span></code>.</p>
 </dd>
 <dt class="field-odd">Example<span class="colon">:</span></dt>
-<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-ctx-creation"><span class="std std-ref">Acquisition Context Creation</span></a></p>
+<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-ctx-creation"><span class="std std-ref">Acquisition Context Creation</span></a>.</p>
 </dd>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference internal" href="#c.oni_get_opt" title="oni_get_opt"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_get_opt()</span></code></a></dt><dd><p>Inspect <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> state</p>
+<dt><a class="reference internal" href="#c.oni_get_opt" title="oni_get_opt"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_get_opt()</span></code></a></dt><dd><p>Inspect <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> state.</p>
 </dd>
-<dt><a class="reference internal" href="#c.oni_set_opt" title="oni_set_opt"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_set_opt()</span></code></a></dt><dd><p>Modify <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> state</p>
+<dt><a class="reference internal" href="#c.oni_set_opt" title="oni_set_opt"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_set_opt()</span></code></a></dt><dd><p>Modify <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> state.</p>
 </dd>
 </dl>
 </div>
@@ -682,7 +682,7 @@ Specifically, during a successful call to <a class="reference internal" href="#c
 following events occur:</p>
 <ol class="arabic simple">
 <li><p>All required data streams are opened.</p></li>
-<li><p>A hardware reset issued using <a class="reference internal" href="onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_RESET" title="ONI_OPT_RESET"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_RESET</span></code></a></p></li>
+<li><p>A hardware reset issued using <a class="reference internal" href="onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_RESET" title="ONI_OPT_RESET"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_RESET</span></code></a>.</p></li>
 <li><p>A device table is obtained from the hardware.</p></li>
 <li><p>The minimal <a class="reference internal" href="onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_BLOCKREADSIZE" title="ONI_OPT_BLOCKREADSIZE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_BLOCKREADSIZE</span></code></a> and
 <a class="reference internal" href="onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_BLOCKWRITESIZE" title="ONI_OPT_BLOCKWRITESIZE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_BLOCKWRITESIZE</span></code></a> values are calculated and
@@ -692,18 +692,18 @@ stored.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – The acquisition context to be initialized</p></li>
+<li><p><strong>ctx</strong> – The acquisition context to be initialized.</p></li>
 <li><p><strong>host_idx</strong> – The index of the hardware we are going to
 manage using the initialized context and driver. A value of -1 will
 attempt to open the default host index and is useful if there is only a
-single ONIX host managed by driver selected in <a class="reference internal" href="#c.oni_create_ctx" title="oni_create_ctx"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_create_ctx()</span></code></a></p></li>
+single ONIX host managed by driver selected in <a class="reference internal" href="#c.oni_create_ctx" title="oni_create_ctx"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_create_ctx()</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success otherwise see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a>.</p>
 </dd>
 <dt class="field-odd">Example<span class="colon">:</span></dt>
-<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-ctx-creation"><span class="std std-ref">Acquisition Context Creation</span></a></p>
+<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-ctx-creation"><span class="std std-ref">Acquisition Context Creation</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -727,7 +727,7 @@ data buffers, etc.) are closed and their resources freed.</p>
 <dd class="field-even"><p>0 on success otherwise see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a>.</p>
 </dd>
 <dt class="field-odd">Example<span class="colon">:</span></dt>
-<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-ctx-destruction"><span class="std std-ref">Closing an Acquisition Context</span></a></p>
+<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-ctx-destruction"><span class="std std-ref">Closing an Acquisition Context</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -749,10 +749,10 @@ constraints are disobeyed, the function will error. See
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context to read an option from</p></li>
+<li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context to read an option from.</p></li>
 <li><p><strong>option</strong> – Selected option to read. See <a class="reference internal" href="onidefs.html#onidef-context-options"><span class="std std-ref">Context Options</span></a>
 for valid options.</p></li>
-<li><p><strong>value</strong> – buffer to store value of <code class="docutils literal notranslate"><span class="pre">option</span></code> after it is read</p></li>
+<li><p><strong>value</strong> – buffer to store value of <code class="docutils literal notranslate"><span class="pre">option</span></code> after it is read.</p></li>
 <li><p><strong>size</strong> – Pointer to the size of <code class="docutils literal notranslate"><span class="pre">value</span></code> buffer (including terminating
 null character, if applicable) in bytes.</p></li>
 </ul>
@@ -762,7 +762,7 @@ null character, if applicable) in bytes.</p></li>
 </dd>
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-device-table"><span class="std std-ref">Examining the Device Table</span></a> and
-<a class="reference internal" href="liboni-example.html#liboni-example-set-buffers"><span class="std std-ref">Setting Read and Write Buffer Sizes</span></a></p>
+<a class="reference internal" href="liboni-example.html#liboni-example-set-buffers"><span class="std std-ref">Setting Read and Write Buffer Sizes</span></a>.</p>
 </dd>
 </dl>
 <div class="admonition seealso">
@@ -789,19 +789,19 @@ description of each possible <code class="docutils literal notranslate"><span cl
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context to read an option from</p></li>
+<li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context to read an option from.</p></li>
 <li><p><strong>option</strong> – Selected option to set. See <a class="reference internal" href="onidefs.html#onidef-context-options"><span class="std std-ref">Context Options</span></a>
 for valid options.</p></li>
-<li><p><strong>value</strong> – buffer containing data to be written to <code class="docutils literal notranslate"><span class="pre">option</span></code></p></li>
+<li><p><strong>value</strong> – buffer containing data to be written to <code class="docutils literal notranslate"><span class="pre">option</span></code>.</p></li>
 <li><p><strong>size</strong> – Size of <code class="docutils literal notranslate"><span class="pre">value</span></code> buffer (including terminating null
 character, if applicable) in bytes.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>0 on success otherwise see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a></p>
+<dd class="field-even"><p>0 on success otherwise see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a>.</p>
 </dd>
 <dt class="field-odd">Example<span class="colon">:</span></dt>
-<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-device-table"><span class="std std-ref">Examining the Device Table</span></a> and <a class="reference internal" href="liboni-example.html#liboni-example-set-buffers"><span class="std std-ref">Setting Read and Write Buffer Sizes</span></a></p>
+<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-device-table"><span class="std std-ref">Examining the Device Table</span></a> and <a class="reference internal" href="liboni-example.html#liboni-example-set-buffers"><span class="std std-ref">Setting Read and Write Buffer Sizes</span></a>.</p>
 </dd>
 </dl>
 <div class="admonition seealso">
@@ -843,18 +843,18 @@ datasheet</span></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context that manages the requested device</p></li>
-<li><p><strong>dev_idx</strong> – fully-qualified device index within the device table</p></li>
-<li><p><strong>addr</strong> – Address of register to be read</p></li>
+<li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context that manages the requested device.</p></li>
+<li><p><strong>dev_idx</strong> – fully-qualified device index within the device table.</p></li>
+<li><p><strong>addr</strong> – Address of register to be read.</p></li>
 <li><p><strong>value</strong> – Pointer to an unsigned integer that will store the value
 of the register at <code class="docutils literal notranslate"><span class="pre">addr</span></code> on <code class="docutils literal notranslate"><span class="pre">dev_idx</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>0 on success otherwise see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a></p>
+<dd class="field-even"><p>0 on success otherwise see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a>.</p>
 </dd>
 <dt class="field-odd">Example<span class="colon">:</span></dt>
-<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-read-write-reg"><span class="std std-ref">Reading and Writing Device Registers</span></a></p>
+<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-read-write-reg"><span class="std std-ref">Reading and Writing Device Registers</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -871,17 +871,17 @@ write-access, acceptable values, and descriptions) are provided on the
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context that manages the requested device</p></li>
-<li><p><strong>dev_idx</strong> – fully-qualified device index within the device table</p></li>
-<li><p><strong>addr</strong> – Address of register to be read</p></li>
+<li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context that manages the requested device.</p></li>
+<li><p><strong>dev_idx</strong> – fully-qualified device index within the device table.</p></li>
+<li><p><strong>addr</strong> – Address of register to be read.</p></li>
 <li><p><strong>value</strong> – Value to write to the register at <code class="docutils literal notranslate"><span class="pre">addr</span></code> on <code class="docutils literal notranslate"><span class="pre">dev_idx</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>0 on success otherwise see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a></p>
+<dd class="field-even"><p>0 on success otherwise see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a>.</p>
 </dd>
 <dt class="field-odd">Example<span class="colon">:</span></dt>
-<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-read-write-reg"><span class="std std-ref">Reading and Writing Device Registers</span></a></p>
+<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-read-write-reg"><span class="std std-ref">Reading and Writing Device Registers</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -892,7 +892,7 @@ write-access, acceptable values, and descriptions) are provided on the
 <dd><p>Read high-bandwidth data from the data input channel.
 <a class="reference internal" href="#c.oni_read_frame" title="oni_read_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_read_frame()</span></code></a> allocates host memory and populates it with a single
 <a class="reference internal" href="#c.oni_frame_t" title="oni_frame_t"><code class="xref c c-struct docutils literal notranslate"><span class="pre">oni_frame_t</span></code></a> struct using the data input stream. This call will
-block until either enough data available on the stream to construct an
+block until enough data is available on the stream to construct an
 underlying block buffer (see <a class="reference internal" href="onidefs.html#c.&#64;ctx_opts_enum.ONI_OPT_BLOCKREADSIZE" title="ONI_OPT_BLOCKREADSIZE"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_BLOCKREADSIZE</span></code></a> and
 <a class="reference internal" href="liboni-example.html#liboni-example-set-buffers"><span class="std std-ref">Setting Read and Write Buffer Sizes</span></a>). <a class="reference internal" href="#c.oni_frame_t" title="oni_frame_t"><code class="xref c c-struct docutils literal notranslate"><span class="pre">oni_frame_t</span></code></a>’s created during
 calls to <a class="reference internal" href="#c.oni_read_frame" title="oni_read_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_read_frame()</span></code></a> are zero-copy views into this buffer.</p>
@@ -900,21 +900,21 @@ calls to <a class="reference internal" href="#c.oni_read_frame" title="oni_read_
 <p class="admonition-title">Attention</p>
 <p>It is the user’s responsibility to free the resources allocated by
 this call by passing the resulting frame pointer to
-<a class="reference internal" href="#c.oni_destroy_frame" title="oni_destroy_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_destroy_frame()</span></code></a></p>
+<a class="reference internal" href="#c.oni_destroy_frame" title="oni_destroy_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_destroy_frame()</span></code></a>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context that manages the high-bandwidth input
-channel that the frame will be read from</p></li>
-<li><p><strong>frame</strong> – NULL pointer to reference using internal memory</p></li>
+channel that the frame will be read from.</p></li>
+<li><p><strong>frame</strong> – NULL pointer to reference using internal memory.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>0 on success otherwise see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a></p>
+<dd class="field-even"><p>0 on success otherwise see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a>.</p>
 </dd>
 <dt class="field-odd">Example<span class="colon">:</span></dt>
-<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-read-frame"><span class="std std-ref">Reading Data Frames</span></a></p>
+<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-read-frame"><span class="std std-ref">Reading Data Frames</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -933,8 +933,8 @@ this call by passing the resulting frame pointer to
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context that manages the high-bandwidth output
-channel that the frame will be written through</p></li>
-<li><p><strong>frame</strong> – NULL pointer to reference using internal memory</p></li>
+channel that the frame will be written through.</p></li>
+<li><p><strong>frame</strong> – NULL pointer to reference using internal memory.</p></li>
 <li><p><strong>dev_idx</strong> – fully-qualified device index within the device table that
 the frame will be written to.</p></li>
 <li><p><strong>data</strong> – Raw data block to be copied into the frame.</p></li>
@@ -942,10 +942,10 @@ the frame will be written to.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>0 on success otherwise see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a></p>
+<dd class="field-even"><p>0 on success otherwise see <a class="reference internal" href="onidefs.html#onidef-error-codes"><span class="std std-ref">Error Codes</span></a>.</p>
 </dd>
 <dt class="field-odd">Example<span class="colon">:</span></dt>
-<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-write-frame"><span class="std std-ref">Writing Data Frames</span></a></p>
+<dd class="field-odd"><p>See <a class="reference internal" href="liboni-example.html#liboni-example-write-frame"><span class="std std-ref">Writing Data Frames</span></a>.</p>
 </dd>
 </dl>
 <div class="admonition attention">
@@ -970,7 +970,7 @@ table using the high-bandwidth output channel.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context that manages the high-bandwidth output
 channel that the frame will be written through</p></li>
-<li><p><strong>frame</strong> – Pointer to frame created duing a call to <a class="reference internal" href="#c.oni_create_frame" title="oni_create_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_create_frame()</span></code></a></p></li>
+<li><p><strong>frame</strong> – Pointer to frame created during a call to <a class="reference internal" href="#c.oni_create_frame" title="oni_create_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_create_frame()</span></code></a></p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -985,7 +985,7 @@ channel that the frame will be written through</p></li>
 <p>Frames created by using <a class="reference internal" href="#c.oni_create_frame" title="oni_create_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_create_frame()</span></code></a> can be written to
 a device multiple times by using them as input arguments to
 <a class="reference internal" href="#c.oni_write_frame" title="oni_write_frame"><code class="xref c c-func docutils literal notranslate"><span class="pre">oni_write_frame()</span></code></a> multiple times. This allows pre-allocation of
-frame resources from improved latency and determinism in closed-loop
+frame resources for improved latency and determinism in closed-loop
 applications.</p>
 </div>
 </dd></dl>
@@ -1011,7 +1011,7 @@ input pointers will reference the library’s version.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>major</strong> – major library version for incompatible API changes</p></li>
+<li><p><strong>major</strong> – major library version for incompatible API changes.</p></li>
 <li><p><strong>minor</strong> – minor library version for backwards compatible changes.</p></li>
 <li><p><strong>patch</strong> – patch number for backwards compatible bug fixes.</p></li>
 </ul>
@@ -1029,11 +1029,11 @@ version.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ctx</strong> – <a class="reference internal" href="#c.oni_ctx" title="oni_ctx"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_ctx</span></code></a> context of which the loaded driver translator information
-will be reported</p></li>
+will be reported.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A pointer to a constant structure containing the driver translator information</p>
+<dd class="field-even"><p>A pointer to a constant structure containing the driver translator information.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1046,7 +1046,7 @@ string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>err</strong> – The error code to convert</p></li>
+<li><p><strong>err</strong> – The error code to convert.</p></li>
 </ul>
 </dd>
 </dl>

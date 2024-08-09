@@ -418,48 +418,48 @@ document.write(`
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>All of these types will be almost certainly be deprecated in
-future API revisions to handle drivers with different channel bit widths</p>
+future API revisions to handle drivers with different channel bit widths.</p>
 </div>
 <dl class="c type">
 <dt class="sig sig-object c" id="c.oni_size_t">
 <span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_size_t</span></span></span><a class="headerlink" href="#c.oni_size_t" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Data sizes are 32-bit uints</p>
+<dd><p>Data sizes are 32-bit uints.</p>
 </dd></dl>
 
 <dl class="c type">
 <dt class="sig sig-object c" id="c.oni_dev_id_t">
 <span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_dev_id_t</span></span></span><a class="headerlink" href="#c.oni_dev_id_t" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Device IDs are 32-bit values</p>
+<dd><p>Device IDs are 32-bit values.</p>
 </dd></dl>
 
 <dl class="c type">
 <dt class="sig sig-object c" id="c.oni_dev_idx_t">
 <span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_dev_idx_t</span></span></span><a class="headerlink" href="#c.oni_dev_idx_t" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Device idx are 32-bit, byte.byte.btye.byte addresses</p>
+<dd><p>Device idx are 32-bit, byte.byte.byte.byte addresses.</p>
 </dd></dl>
 
 <dl class="c type">
 <dt class="sig sig-object c" id="c.oni_reg_addr_t">
 <span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_reg_addr_t</span></span></span><a class="headerlink" href="#c.oni_reg_addr_t" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Registers use a 32-bit address</p>
+<dd><p>Registers use a 32-bit address.</p>
 </dd></dl>
 
 <dl class="c type">
 <dt class="sig sig-object c" id="c.oni_reg_val_t">
 <span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_reg_val_t</span></span></span><a class="headerlink" href="#c.oni_reg_val_t" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Registers have 32-bit values</p>
+<dd><p>Registers have 32-bit values.</p>
 </dd></dl>
 
 <dl class="c type">
 <dt class="sig sig-object c" id="c.oni_fifo_dat_t">
 <span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_fifo_dat_t</span></span></span><a class="headerlink" href="#c.oni_fifo_dat_t" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>FIFOs use 32-bit words</p>
+<dd><p>FIFOs use 32-bit words.</p>
 </dd></dl>
 
 <dl class="c type">
 <dt class="sig sig-object c" id="c.oni_fifo_time_t">
 <span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oni_fifo_time_t</span></span></span><a class="headerlink" href="#c.oni_fifo_time_t" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>FIFO bound timers use 64-bit words</p>
+<dd><p>FIFO bound timers use 64-bit words.</p>
 </dd></dl>
 
 </section>
@@ -532,7 +532,7 @@ acquisition on.  Writing 0 to this option will stop acquisition, but will
 not reset context options or the sample counter. All data not shifted out
 of hardware will be cleared. To obtain the very first samples produced by
 high-bandwidth devices, see <a class="reference internal" href="#c.&#64;ctx_opts_enum.ONI_OPT_RESETACQCOUNTER" title="ONI_OPT_RESETACQCOUNTER"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_RESETACQCOUNTER</span></code></a> to see how to
-start acqusition sychronously with a clock reset.</p>
+start acquisition synchronously with a clock reset.</p>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Option value type</p></td>
@@ -558,9 +558,9 @@ start acqusition sychronously with a clock reset.</p>
 <dt class="sig sig-object c" id="c.&#64;ctx_opts_enum.ONI_OPT_RESET">
 <span class="sig-name descname"><span class="n"><span class="pre">ONI_OPT_RESET</span></span></span><a class="headerlink" href="#c.@ctx_opts_enum.ONI_OPT_RESET" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">3</span></code>)
-Trigger global hardware reset. Any value great than 0 will trigger a
+Trigger global hardware reset. Any value greater than 0 will trigger a
 hardware reset. In this case, acquisition is stopped and resets are issued
-to all devices in the device table. Following a</p>
+to all devices in the device table.</p>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Option value type</p></td>
@@ -613,16 +613,16 @@ clock governing the host hardware.</p>
 <dt class="sig sig-object c" id="c.&#64;ctx_opts_enum.ONI_OPT_ACQCLKHZ">
 <span class="sig-name descname"><span class="n"><span class="pre">ONI_OPT_ACQCLKHZ</span></span></span><a class="headerlink" href="#c.@ctx_opts_enum.ONI_OPT_ACQCLKHZ" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">5</span></code>)
-Host system acqusition clock frequency in Hz, derived from
+Host system acquisition clock frequency in Hz, derived from
 <a class="reference internal" href="#c.&#64;ctx_opts_enum.ONI_OPT_SYSCLKHZ" title="ONI_OPT_SYSCLKHZ"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_SYSCLKHZ</span></code></a>. This describes the frequency of the clock used
-to drive the acqusition counter which is used timestamp data frames.</p>
+to drive the acquisition counter which is used to timestamp data frames.</p>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Option value type</p></td>
 <td><p><a class="reference internal" href="#c.oni_reg_val_t" title="oni_reg_val_t"><code class="xref c c-type docutils literal notranslate"><span class="pre">oni_reg_val_t</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p>Option description</p></td>
-<td><p>Host acqusition clock frequency in Hz</p></td>
+<td><p>Host acquisition clock frequency in Hz</p></td>
 </tr>
 <tr class="row-odd"><td><p>Default value</p></td>
 <td><p>N/A</p></td>
@@ -641,9 +641,9 @@ to drive the acqusition counter which is used timestamp data frames.</p>
 <dt class="sig sig-object c" id="c.&#64;ctx_opts_enum.ONI_OPT_RESETACQCOUNTER">
 <span class="sig-name descname"><span class="n"><span class="pre">ONI_OPT_RESETACQCOUNTER</span></span></span><a class="headerlink" href="#c.@ctx_opts_enum.ONI_OPT_RESETACQCOUNTER" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">6</span></code>)
-Trigger a reset of the acqusition clock counter. A value of 1 will trigger
-an acqusition clock counter reset. A value of 2 or greater will trigger
-synchronous acqusition clock counter reset and set <a class="reference internal" href="#c.&#64;ctx_opts_enum.ONI_OPT_RUNNING" title="ONI_OPT_RUNNING"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_RUNNING</span></code></a>
+Trigger a reset of the acquisition clock counter. A value of 1 will trigger
+an acquisition clock counter reset. A value of 2 or greater will trigger
+synchronous acquisition clock counter reset and set <a class="reference internal" href="#c.&#64;ctx_opts_enum.ONI_OPT_RUNNING" title="ONI_OPT_RUNNING"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_RUNNING</span></code></a>
 to 1.</p>
 <table class="table">
 <tbody>
@@ -670,8 +670,8 @@ to 1.</p>
 <dt class="sig sig-object c" id="c.&#64;ctx_opts_enum.ONI_OPT_HWADDRESS">
 <span class="sig-name descname"><span class="n"><span class="pre">ONI_OPT_HWADDRESS</span></span></span><a class="headerlink" href="#c.@ctx_opts_enum.ONI_OPT_HWADDRESS" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">7</span></code>)
-The address of the host hardware within the acqusition computer.
-Determines the sychronization role of the hardware in multi-host
+The address of the host hardware within the acquisition computer.
+Determines the synchronization role of the hardware in multi-host
 systems.</p>
 <table class="table">
 <tbody>
@@ -1049,7 +1049,7 @@ Device register access: Target device index</p>
 <dt class="sig sig-object c" id="c.oni_config_t.ONI_CONFIG_REG_ADDR">
 <span class="sig-name descname"><span class="n"><span class="pre">ONI_CONFIG_REG_ADDR</span></span></span><a class="headerlink" href="#c.oni_config_t.ONI_CONFIG_REG_ADDR" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>( <code class="docutils literal notranslate"><span class="pre">1</span></code>)
-Device register access: Target adress</p>
+Device register access: Target address</p>
 </dd></dl>
 
 <dl class="c macro">
@@ -1112,7 +1112,7 @@ Trigger a reset of the acquisition counter. Accessed through <a class="reference
 <dt class="sig sig-object c" id="c.oni_config_t.ONI_CONFIG_HWADDRESS">
 <span class="sig-name descname"><span class="n"><span class="pre">ONI_CONFIG_HWADDRESS</span></span></span><a class="headerlink" href="#c.oni_config_t.ONI_CONFIG_HWADDRESS" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>( <code class="docutils literal notranslate"><span class="pre">10</span></code>)
-The address of the host hardware within the acqusition computer. Accessed through <a class="reference internal" href="#c.&#64;ctx_opts_enum.ONI_OPT_HWADDRESS" title="ONI_OPT_HWADDRESS"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_HWADDRESS</span></code></a></p>
+The address of the host hardware within the acquisition computer. Accessed through <a class="reference internal" href="#c.&#64;ctx_opts_enum.ONI_OPT_HWADDRESS" title="ONI_OPT_HWADDRESS"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ONI_OPT_HWADDRESS</span></code></a></p>
 </dd></dl>
 
 </dd></dl>

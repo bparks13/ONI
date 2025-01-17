@@ -42,4 +42,4 @@ jobs:
         with:
           name: html
           if-no-files-found: error
-          path: docs/*
+          path: docs/html/*

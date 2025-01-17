@@ -245,5 +245,5 @@ linkcheck_anchors = False
 # Options for sphinx-multiversion
 smv_branch_whitelist = r'^main$'
 smv_tag_whitelist = r'^v\d+\.\d+$'
-smv_remote_whitelist = None
+smv_remote_whitelist = r'^(origin)$'
 smv_released_pattern = r'^tags/.*$'
